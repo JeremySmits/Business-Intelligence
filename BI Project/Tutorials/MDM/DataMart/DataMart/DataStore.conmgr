@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DataStore"
+  DTS:DTSID="{8BDD4463-9DB4-4FA2-AD83-B1131F176399}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=aei-sql2.avans.nl;User ID=student;Initial Catalog=AdventureBikes ERP;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAAACAAAAAAAQZgAAAAEAACAAAACZ94dGriGb3xvV15KeUgy4kPrfZECKbOhBjKjiv0PUWgAAAAAOgAAAAAIAACAAAAD08E2XiAzDNxmCNA2HOWScPLvmBuhlfogrJHPnzW09GYAAAACbonyXzvYscSTF4+7A/cqxc9LOIDhaF/MIIosmx0LKQ7Bwy8UwWbwBUSv9vuT5M+6FoUGK0GUkOv5m38kdAIbvmBvVW311AhR6uJMagAAetWBwKv0GJRXv/H4/sZpKAE8WCWwBeVcYOqWRhP57H2hhjurJzQTXMYLzBiPMfuMVDUAAAACAYui6/V1GXrEzmCx3LXVszdg4Pmy6k6RS5D1SWiPyvOGm6hC1KTTrWD4RW3iAfM8Db6IqPj8REanXvrpb2uIv</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
