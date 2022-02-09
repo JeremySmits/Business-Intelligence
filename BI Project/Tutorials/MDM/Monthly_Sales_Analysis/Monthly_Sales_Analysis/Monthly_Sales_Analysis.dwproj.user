@@ -7,18 +7,18 @@
           <ConfigurationSetting>
             <Id>Adventure Bikes Sales Data Mart</Id>
             <Name>Adventure Bikes Sales Data Mart</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAABAAAAAQQBkAHYAZQBuAHQAdQByAGUAIABCAGkAawBlAHMAIABTAGEAbABlAHMAIABEAGEAdABhACAATQBhAHIAdAAAABBmAAAAAQAAIAAAANryzYGvm5nMGwD9u3TS6BHga3M0P1Wptb+iIBm61DALAAAAAA6AAAAAAgAAIAAAAKWlUltoVR5aZn7NN6O2nodM3hGyH099jSuhGqGNiWQXEAAAAG/cJ6V/s8VKPw+x9dXZx1NAAAAAuo0qHX2KUAb4obSI7EbYgDYy8unpSpzWslG8tCogLbMz5SC087EzYFh32TiKBdiLci9LNvxyUBq7ZopcPgi6+g==</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAABAAAAAQQBkAHYAZQBuAHQAdQByAGUAIABCAGkAawBlAHMAIABTAGEAbABlAHMAIABEAGEAdABhACAATQBhAHIAdAAAABBmAAAAAQAAIAAAAD4L0jJRi9bc1d10BxshkH6bSsDf0NXJHM6CNcvheVPBAAAAAA6AAAAAAgAAIAAAAIF3GQnmr+u6Yzypc3pJ/A19u3CElYSjedD2D6A754pIEAAAAFweT+PZybnvNBRnrpm4evRAAAAAhgocANTJ8DKtsE/crhtST/ybJRDLVpNGVQh4U+TVafvUSpmJ5+/GRbBrue5TfASsBQm248NmgoVcuslRxfARUQ==</Value>
           </ConfigurationSetting>
         </UserIDs>
         <UserPasswords>
           <ConfigurationSetting>
             <Id>Adventure Bikes Sales Data Mart</Id>
             <Name>Adventure Bikes Sales Data Mart</Name>
-            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAABAAAAAQQBkAHYAZQBuAHQAdQByAGUAIABCAGkAawBlAHMAIABTAGEAbABlAHMAIABEAGEAdABhACAATQBhAHIAdAAAABBmAAAAAQAAIAAAAJRjHlzf0SnlbzNmEmVqxADE3SWtgZZMr9YhZvudXGELAAAAAA6AAAAAAgAAIAAAALGYZ1Cb12ybSG4kq5Z0/F1tqkI3zDQglT0zeV+Y2RIEIAAAAIS5GhPwcmX3GYHvPUAfd5nwTBUB9u4hNW39fBXejWIGQAAAAP/vvS1fx4Vn8XbAGbgWeB+u58LIMAXpTb4XeY4Jyzn2C/1IoZGejn80hCsE5c4pQx1YbzhKyOnfse1UwAja3i0=</Value>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAABAAAAAQQBkAHYAZQBuAHQAdQByAGUAIABCAGkAawBlAHMAIABTAGEAbABlAHMAIABEAGEAdABhACAATQBhAHIAdAAAABBmAAAAAQAAIAAAALqKcL9zylyRWqhuH1wmE6hfOajPzkDTrspMNnN0/lzQAAAAAA6AAAAAAgAAIAAAAGEUJTMrWa4udHPxsR2kMSUa4jZGp8+O3QrAtyAuhDDoIAAAAHIuK71wvVPI9PqLDmSv4yN3J605tJDvqdllmq7X+qdzQAAAALJ9kBDfCRskRGqk8fN0eDuWisYDiQlM5fwWkAhJPDRg1mQY1dmQzLSRIw34pM4aAPkaBbS1yIoeC6VCezFF56o=</Value>
           </ConfigurationSetting>
         </UserPasswords>
-        <TargetServer>localhost</TargetServer>
-        <TargetDatabase>Monthly_Sales_Analysis</TargetDatabase>
+        <TargetServer>http://aei-sql2.avans.nl/OLAP/msmdpump.dll</TargetServer>
+        <TargetDatabase>2141535-Monthly_Sales_Analysis</TargetDatabase>
         <StartObject>
           <ObjectId></ObjectId>
           <ObjectType>Current</ObjectType>
