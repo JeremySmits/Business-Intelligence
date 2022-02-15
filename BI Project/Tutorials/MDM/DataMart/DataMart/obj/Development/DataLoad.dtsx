@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="DataLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{5B277C87-D917-4F30-A793-4D8CC230DB10}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{0E5D453A-514B-4007-A76F-09EEF219BCB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -31,7 +31,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C3C73601-CF44-43ED-89BB-0D3ECFB3011A}"
-          SQLTask:SqlStatementSource="DELETE FROM D_TIME; &#xA;DELETE FROM D_STORE; &#xA;DELETE FROM D_Product; &#xA;DELETE FROM D_Sales_Channel; &#xA;DELETE FROM F_Monthly_Sales;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM F_Monthly_Sales;&#xA;DELETE FROM D_TIME; &#xA;DELETE FROM D_STORE; &#xA;DELETE FROM D_Product; &#xA;DELETE FROM D_Sales_Channel; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3689,17 +3689,17 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151,42"
-          Id="Package\Load Calendar"
-          TopLeft="12,115" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
           TopLeft="167.5,10.5" />
         <NodeLayout
-          Size="133,42"
-          Id="Package\Load Store"
-          TopLeft="180,111" />
+          Size="151,42"
+          Id="Package\Load Calendar"
+          TopLeft="12,115" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Load Montly Sales"
+          TopLeft="278,262" />
         <NodeLayout
           Size="144,42"
           Id="Package\Load Product"
@@ -3708,6 +3708,10 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
           Size="134,42"
           Id="Package\Load Sales"
           TopLeft="521,117" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load Store"
+          TopLeft="180,111" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="203.9,52.5">
@@ -3844,10 +3848,6 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Load Montly Sales"
-          TopLeft="278,262" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="87.5,157">
@@ -3991,15 +3991,15 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
     design-time-name="Package\Load Calendar">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="124,42"
-          Id="Package\Load Calendar\Calendar"
-          TopLeft="297,133" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="118,42"
           Id="Package\Load Calendar\D_Time"
           TopLeft="306,235" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Load Calendar\Calendar"
+          TopLeft="297,133" />
         <EdgeLayout
           Id="Package\Load Calendar.Paths[OLE DB Source Output]"
           TopLeft="362,175">
@@ -4019,7 +4019,9 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4052,57 +4054,206 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load Store">
+    design-time-name="Package\Load Montly Sales">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Load Store\OLE DB Source"
-          TopLeft="197,64" />
+          Size="158,42"
+          Id="Package\Load Montly Sales\Derived Column"
+          TopLeft="771,518" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Load Montly Sales\Lookup GetLastDayOfMonth"
+          TopLeft="545,417" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Load Store\OLE DB Destination"
-          TopLeft="241,246" />
+          Id="Package\Load Montly Sales\OLE DB Destination"
+          TopLeft="1272,717" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Load Montly Sales\OLE DB Source"
+          TopLeft="581,322" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Load Montly Sales\Calculate Gross Profit"
+          TopLeft="996,521" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Montly Sales\Aggregate"
+          TopLeft="1294,623" />
         <EdgeLayout
-          Id="Package\Load Store.Paths[OLE DB Source Output]"
-          TopLeft="275.5,106">
+          Id="Package\Load Montly Sales.Paths[Derived Column Output1]"
+          TopLeft="1089,563">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54,140"
+              EndConnector="270,60"
               Start="0,0"
-              End="54,132.5">
+              End="270,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66" />
+                    End="0,26" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,66"
-                    Point2="0,70"
-                    Point3="4,70" />
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
                   <mssgle:LineSegment
-                    End="50,70" />
+                    End="266,30" />
                   <mssgle:CubicBezierSegment
-                    Point1="50,70"
-                    Point2="54,70"
-                    Point3="54,74" />
+                    Point1="266,30"
+                    Point2="270,30"
+                    Point3="270,34" />
                   <mssgle:LineSegment
-                    End="54,132.5" />
+                    End="270,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Montly Sales.Paths[Derived Column Output]"
+          TopLeft="929,540.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67,0"
+              Start="0,0"
+              End="59.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Montly Sales.Paths[Aggregate Output 1]"
+          TopLeft="1359.75,665">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Montly Sales.Paths[OLE DB Source Output]"
+          TopLeft="656.75,364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Montly Sales.Paths[Lookup Match Output]"
+          TopLeft="654,459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="196,59"
+              Start="0,0"
+              End="196,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="192,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="192,29.5"
+                    Point2="196,29.5"
+                    Point3="196,33.5" />
+                  <mssgle:LineSegment
+                    End="196,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="49.80861328125,34.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Store\OLE DB Source">
+    design-time-name="Package\Load Montly Sales\Lookup GetLastDayOfMonth">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ERP_M_CALENDAR]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Montly Sales\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4115,7 +4266,7 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Store\OLE DB Destination">
+    design-time-name="Package\Load Montly Sales\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4137,13 +4288,13 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
           Id="Package\Load Product\OLE DB Source"
           TopLeft="294,175" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Load Product\OLE DB Destination"
-          TopLeft="286,374" />
-        <NodeLayout
           Size="208,42"
           Id="Package\Load Product\Lookup Category and Line"
           TopLeft="268,271" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load Product\OLE DB Destination"
+          TopLeft="286,374" />
         <EdgeLayout
           Id="Package\Load Product.Paths[OLE DB Source Output]"
           TopLeft="372.25,217">
@@ -4163,7 +4314,9 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4207,6 +4360,29 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Product\Lookup Category and Line">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ERP_M_PRODUCT_CATEGORY]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Product\OLE DB Destination">
     <Properties>
       <Property>
@@ -4219,34 +4395,11 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Product\Lookup Category and Line">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[ERP_M_PRODUCT_CATEGORY]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Sales">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Load Sales\OLE DB Source"
@@ -4286,25 +4439,14 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Sales\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Sales\OLE DB Destination">
     <Properties>
@@ -4318,176 +4460,73 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Sales\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load Montly Sales">
+    design-time-name="Package\Load Store">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load Store\OLE DB Destination"
+          TopLeft="241,246" />
         <NodeLayout
           Size="157,42"
-          Id="Package\Load Montly Sales\OLE DB Source"
-          TopLeft="581,322" />
-        <NodeLayout
-          Size="218,42"
-          Id="Package\Load Montly Sales\Lookup GetLastDayOfMonth"
-          TopLeft="545,417" />
+          Id="Package\Load Store\OLE DB Source"
+          TopLeft="197,64" />
         <EdgeLayout
-          Id="Package\Load Montly Sales.Paths[OLE DB Source Output]"
-          TopLeft="656.75,364">
+          Id="Package\Load Store.Paths[OLE DB Source Output]"
+          TopLeft="275.5,106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53"
+              EndConnector="54,140"
               Start="0,0"
-              End="0,45.5">
+              End="54,132.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Load Montly Sales\Derived Column"
-          TopLeft="771,518" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Load Montly Sales\Calculate Gross Profit"
-          TopLeft="996,521" />
-        <EdgeLayout
-          Id="Package\Load Montly Sales.Paths[Lookup Match Output]"
-          TopLeft="654,459">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="196,59"
-              Start="0,0"
-              End="196,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.5" />
+                    End="0,66" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.5"
-                    Point2="0,29.5"
-                    Point3="4,29.5" />
+                    Point1="0,66"
+                    Point2="0,70"
+                    Point3="4,70" />
                   <mssgle:LineSegment
-                    End="192,29.5" />
+                    End="50,70" />
                   <mssgle:CubicBezierSegment
-                    Point1="192,29.5"
-                    Point2="196,29.5"
-                    Point3="196,33.5" />
+                    Point1="50,70"
+                    Point2="54,70"
+                    Point3="54,74" />
                   <mssgle:LineSegment
-                    End="196,51.5" />
+                    End="54,132.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="49.80861328125,34.5,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Montly Sales.Paths[Derived Column Output]"
-          TopLeft="929,540.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="67,0"
-              Start="0,0"
-              End="59.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="59.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Montly Sales\Aggregate"
-          TopLeft="1294,623" />
-        <EdgeLayout
-          Id="Package\Load Montly Sales.Paths[Derived Column Output1]"
-          TopLeft="1089,563">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="270,60"
-              Start="0,0"
-              End="270,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
-                  <mssgle:LineSegment
-                    End="266,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="266,30"
-                    Point2="270,30"
-                    Point3="270,34" />
-                  <mssgle:LineSegment
-                    End="270,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Load Montly Sales\OLE DB Destination"
-          TopLeft="1272,717" />
-        <EdgeLayout
-          Id="Package\Load Montly Sales.Paths[Aggregate Output 1]"
-          TopLeft="1359.75,665">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Montly Sales\OLE DB Source">
+    design-time-name="Package\Load Store\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4500,30 +4539,7 @@ where [refTable].[PRODUCT_CATEGORY_ID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Montly Sales\Lookup GetLastDayOfMonth">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[ERP_M_CALENDAR]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Montly Sales\OLE DB Destination">
+    design-time-name="Package\Load Store\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

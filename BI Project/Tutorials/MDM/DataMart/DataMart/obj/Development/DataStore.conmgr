@@ -10,7 +10,7 @@
       DTS:ConnectionString="Data Source=aei-sql2.avans.nl;User ID=student;Initial Catalog=AdventureBikes ERP;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAAACAAAAAAAQZgAAAAEAACAAAACkZNMxHoHV0pJlframY9QsIPY9JX8h5lDtKyZleJTdWgAAAAAOgAAAAAIAACAAAACwDmyE3XZQDU6DOSzuadlb8mPNx7YUrxkBjqj1iP5Ge4AAAAAr06xCeIIYwfuZgacupgRp1XovfOQ8DWJA+pNs2uc/12bgSA+WhNxfqBl49YnRG/If/miW6HGm/yBrLoVV2StqeQMktTh72FxlFjghuJO/UdwiVcW44YB9qu4COGuf7MzUwGm4/VDoW09NICsqv0EIL7v8g1e+lgzEDaFhzwPG/kAAAAAhbljfASvJUL3u0sD+tbFCAXVT122t6qN2fxPFX/+nAEejfRzZGvJKutDrCzEUqUcyJE0xlbP+CKxxqGReOcjz</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAAACAAAAAAAQZgAAAAEAACAAAAAhqaXZjJMXPBujj600xCieqwtB0l0kyl9B6Qg4j0j/uQAAAAAOgAAAAAIAACAAAACqb6TrItQz+mRuHmB9+E1Z1qp84u++KHobaezrSbijDIAAAAA3lMYHLH4avM+Z3NhtCajQm6WsD5kOUzilJaGAOOXXFOp+W3X3B9O7funE01+faMXrFWz8VgHsKjRrc+gLOpXnb4sn1XnWs8c17Y4F/9NZs83apyQkjLtp7ilyRevPdKcV8dTOHC+Is8ocwA9cZQfLmSptQTzG4fbeUZ3L+y8k30AAAACq5uV+a7vdn0t77+FIm7exduD7VUbfJoUFyBUI0TI1kZ8mhbyQzd3OBW0lFv85onaVd3xOKQ3c3B2ibLF++YQZ</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
