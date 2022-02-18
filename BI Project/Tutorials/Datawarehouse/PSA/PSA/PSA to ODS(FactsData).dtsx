@@ -1,0 +1,1206 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/18/2022 4:56:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JEREMY"
+  DTS:CreatorName="DESKTOP-JEREMY\Jeremy"
+  DTS:DTSID="{4E10C630-312D-45DE-BAAE-9B871C4D2C60}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="3072"
+  DTS:ObjectName="PSA to ODS FactsData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{67D4327A-C7A9-4F81-90ED-4ABA6FC30BD1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DailySales"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0b856aa5-2656-4637-94be-81a255de598b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DailySales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DailySales\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ODS_T_Daily_Sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[ODS_T_Daily_Sales]) [refTable]
+where [refTable].[ORDER_ID] = ? and [refTable].[ORDER_DATE_ID] = ? and [refTable].[SALES_OFFICE_ID] = ? and [refTable].[SALES_CHANNEL_ID] = ? and [refTable].[CURRENCY_ID] = ? and [refTable].[MAT_ROW_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SALES_ROW_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ORDER_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ORDERPOS_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MAT_ROW_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ORDER_DATE_ID" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SALES_OFFICE_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SALES_CHANNEL_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CUSTOMER_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CURRENCY_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SALES_AMOUNT" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UNIT_PRICE_LOC" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TOTAL_DISCOUNT_LOC" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TRANSFER_PRICE_EUR" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="REVENUE_LOC" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VAT_PERCENT" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LAST_CHANGE_DATE" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_ID]};#{Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_DATE_ID]};#{Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_OFFICE_ID]};#{Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_CHANNEL_ID]};#{Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CURRENCY_ID]};#{Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output].Columns[MAT_ROW_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DailySales\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{7407FB1D-DF8B-45A3-A77C-90EBB12AC7C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DailySales\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup.Inputs[Lookup Input].Columns[MAT_ROW_ID]"
+                      cachedDataType="i4"
+                      cachedName="MAT_ROW_ID"
+                      lineageId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output].Columns[MAT_ROW_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MAT_ROW_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup.Inputs[Lookup Input].Columns[ORDER_DATE_ID]"
+                      cachedDataType="dbDate"
+                      cachedName="ORDER_DATE_ID"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_DATE_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ORDER_DATE_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup.Inputs[Lookup Input].Columns[SALES_OFFICE_ID]"
+                      cachedDataType="i4"
+                      cachedName="SALES_OFFICE_ID"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_OFFICE_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SALES_OFFICE_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup.Inputs[Lookup Input].Columns[SALES_CHANNEL_ID]"
+                      cachedDataType="i4"
+                      cachedName="SALES_CHANNEL_ID"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_CHANNEL_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SALES_CHANNEL_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup.Inputs[Lookup Input].Columns[ORDER_ID]"
+                      cachedDataType="i4"
+                      cachedName="ORDER_ID"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ORDER_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup.Inputs[Lookup Input].Columns[CURRENCY_ID]"
+                      cachedDataType="i4"
+                      cachedName="CURRENCY_ID"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CURRENCY_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CURRENCY_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DailySales\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load DailySales\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DailySales\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load DailySales\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DailySales\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load DailySales\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DailySales\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DailySales\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DailySales\Lookup Material Id"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Material Id"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ODS_M_Material]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM   ( SELECT * FROM [dbo].[ODS_M_Material] ) [refTable]
+WHERE [refTable].[MAT_ID] = ?
+AND [refTable].[END_DATE] IS NULL;
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="MAT_ROW_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MAT_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MAT_NR" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MAT_DESCR" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="COLOR" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UOM" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MAT_TYPE" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TRANSFER_PRICE_EUR" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PRODUCT_PRICE_EUR" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DAYS_FOR_SHIPPING" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PRICE_SEGMENT_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Product_Line" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Product_Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="START_DATE" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="END_DATE" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAT_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DailySales\Lookup Material Id.Connections[OleDbConnection]"
+                  connectionManagerID="{7407FB1D-DF8B-45A3-A77C-90EBB12AC7C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DailySales\Lookup Material Id.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DailySales\Lookup Material Id.Inputs[Lookup Input].Columns[MAT_ID]"
+                      cachedDataType="i4"
+                      cachedName="MAT_ID"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAT_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MAT_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load DailySales\Lookup Material Id.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output].Columns[MAT_ROW_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output].Columns[MAT_ROW_ID]"
+                      name="MAT_ROW_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MAT_ROW_ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load DailySales\Lookup Material Id.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load DailySales\Lookup Material Id.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DailySales\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ODS_T_Daily_Sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DailySales\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{7407FB1D-DF8B-45A3-A77C-90EBB12AC7C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ORDER_ID]"
+                      cachedDataType="i4"
+                      cachedName="ORDER_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORDER_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ORDERPOS_ID]"
+                      cachedDataType="i4"
+                      cachedName="ORDERPOS_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORDERPOS_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDERPOS_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ORDER_DATE_ID]"
+                      cachedDataType="dbDate"
+                      cachedName="ORDER_DATE_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORDER_DATE_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_DATE_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SALES_OFFICE_ID]"
+                      cachedDataType="i4"
+                      cachedName="SALES_OFFICE_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_OFFICE_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_OFFICE_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SALES_CHANNEL_ID]"
+                      cachedDataType="i4"
+                      cachedName="SALES_CHANNEL_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_CHANNEL_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_CHANNEL_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
+                      cachedDataType="i4"
+                      cachedName="CUSTOMER_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CURRENCY_ID]"
+                      cachedDataType="i4"
+                      cachedName="CURRENCY_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CURRENCY_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CURRENCY_ID]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SALES_AMOUNT]"
+                      cachedDataType="i4"
+                      cachedName="SALES_AMOUNT"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_AMOUNT]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_AMOUNT]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UNIT_PRICE_LOC]"
+                      cachedDataType="cy"
+                      cachedName="UNIT_PRICE_LOC"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UNIT_PRICE_LOC]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNIT_PRICE_LOC]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TOTAL_DISCOUNT_LOC]"
+                      cachedDataType="cy"
+                      cachedName="TOTAL_DISCOUNT_LOC"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_DISCOUNT_LOC]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_DISCOUNT_LOC]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TRANSFER_PRICE_EUR]"
+                      cachedDataType="cy"
+                      cachedName="TRANSFER_PRICE_EUR"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSFER_PRICE_EUR]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSFER_PRICE_EUR]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REVENUE_LOC]"
+                      cachedDataType="cy"
+                      cachedName="REVENUE_LOC"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REVENUE_LOC]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVENUE_LOC]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VAT_PERCENT]"
+                      cachedDataType="r8"
+                      cachedName="VAT_PERCENT"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VAT_PERCENT]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[VAT_PERCENT]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LAST_CHANGE_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_CHANGE_DATE"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LAST_CHANGE_DATE]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_CHANGE_DATE]" />
+                    <inputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MAT_ROW_ID]"
+                      cachedDataType="i4"
+                      cachedName="MAT_ROW_ID"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAT_ROW_ID]"
+                      lineageId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output].Columns[MAT_ROW_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_ROW_ID]"
+                      dataType="i4"
+                      name="SALES_ROW_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORDER_ID]"
+                      dataType="i4"
+                      name="ORDER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORDERPOS_ID]"
+                      dataType="i4"
+                      name="ORDERPOS_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MAT_ROW_ID]"
+                      dataType="i4"
+                      name="MAT_ROW_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ORDER_DATE_ID]"
+                      dataType="dbDate"
+                      name="ORDER_DATE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_OFFICE_ID]"
+                      dataType="i4"
+                      name="SALES_OFFICE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_CHANNEL_ID]"
+                      dataType="i4"
+                      name="SALES_CHANNEL_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      dataType="i4"
+                      name="CUSTOMER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CURRENCY_ID]"
+                      dataType="i4"
+                      name="CURRENCY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SALES_AMOUNT]"
+                      dataType="i4"
+                      name="SALES_AMOUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UNIT_PRICE_LOC]"
+                      dataType="cy"
+                      name="UNIT_PRICE_LOC" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_DISCOUNT_LOC]"
+                      dataType="cy"
+                      name="TOTAL_DISCOUNT_LOC" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TRANSFER_PRICE_EUR]"
+                      dataType="cy"
+                      name="TRANSFER_PRICE_EUR" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REVENUE_LOC]"
+                      dataType="cy"
+                      name="REVENUE_LOC" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VAT_PERCENT]"
+                      dataType="r8"
+                      name="VAT_PERCENT" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LAST_CHANGE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_CHANGE_DATE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DailySales\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DailySales\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PSA_T_DailySales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DailySales\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{BEFB6BDF-CD3B-4372-B843-4C02B320F9AD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PSA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORDER_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_ID]"
+                      name="ORDER_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDERPOS_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORDERPOS_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDERPOS_ID]"
+                      name="ORDERPOS_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAT_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAT_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[MAT_ID]"
+                      name="MAT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_DATE_ID]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORDER_DATE_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[ORDER_DATE_ID]"
+                      name="ORDER_DATE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_OFFICE_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SALES_OFFICE_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_OFFICE_ID]"
+                      name="SALES_OFFICE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_CHANNEL_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SALES_CHANNEL_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_CHANNEL_ID]"
+                      name="SALES_CHANNEL_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                      name="CUSTOMER_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CURRENCY_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY_ID]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CURRENCY_ID]"
+                      name="CURRENCY_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_AMOUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SALES_AMOUNT]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[SALES_AMOUNT]"
+                      name="SALES_AMOUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNIT_PRICE_LOC]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UNIT_PRICE_LOC]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNIT_PRICE_LOC]"
+                      name="UNIT_PRICE_LOC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_DISCOUNT_LOC]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_DISCOUNT_LOC]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_DISCOUNT_LOC]"
+                      name="TOTAL_DISCOUNT_LOC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSFER_PRICE_EUR]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSFER_PRICE_EUR]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[TRANSFER_PRICE_EUR]"
+                      name="TRANSFER_PRICE_EUR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVENUE_LOC]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REVENUE_LOC]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[REVENUE_LOC]"
+                      name="REVENUE_LOC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[VAT_PERCENT]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VAT_PERCENT]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[VAT_PERCENT]"
+                      name="VAT_PERCENT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_CHANGE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_CHANGE_DATE]"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].Columns[LAST_CHANGE_DATE]"
+                      name="LAST_CHANGE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORDER_ID]"
+                      dataType="i4"
+                      name="ORDER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORDERPOS_ID]"
+                      dataType="i4"
+                      name="ORDERPOS_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MAT_ID]"
+                      dataType="i4"
+                      name="MAT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ORDER_DATE_ID]"
+                      dataType="dbDate"
+                      name="ORDER_DATE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SALES_OFFICE_ID]"
+                      dataType="i4"
+                      name="SALES_OFFICE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SALES_CHANNEL_ID]"
+                      dataType="i4"
+                      name="SALES_CHANNEL_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                      dataType="i4"
+                      name="CUSTOMER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CURRENCY_ID]"
+                      dataType="i4"
+                      name="CURRENCY_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SALES_AMOUNT]"
+                      dataType="i4"
+                      name="SALES_AMOUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UNIT_PRICE_LOC]"
+                      dataType="cy"
+                      name="UNIT_PRICE_LOC" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_DISCOUNT_LOC]"
+                      dataType="cy"
+                      name="TOTAL_DISCOUNT_LOC" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TRANSFER_PRICE_EUR]"
+                      dataType="cy"
+                      name="TRANSFER_PRICE_EUR" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[REVENUE_LOC]"
+                      dataType="cy"
+                      name="REVENUE_LOC" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VAT_PERCENT]"
+                      dataType="r8"
+                      name="VAT_PERCENT" />
+                    <externalMetadataColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LAST_CHANGE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_CHANGE_DATE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORDER_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORDER_ID]"
+                      name="ORDER_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORDERPOS_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORDERPOS_ID]"
+                      name="ORDERPOS_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAT_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MAT_ID]"
+                      name="MAT_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORDER_DATE_ID]"
+                      dataType="dbDate"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ORDER_DATE_ID]"
+                      name="ORDER_DATE_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SALES_OFFICE_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SALES_OFFICE_ID]"
+                      name="SALES_OFFICE_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SALES_CHANNEL_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SALES_CHANNEL_ID]"
+                      name="SALES_CHANNEL_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                      name="CUSTOMER_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CURRENCY_ID]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CURRENCY_ID]"
+                      name="CURRENCY_ID" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SALES_AMOUNT]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SALES_AMOUNT]"
+                      name="SALES_AMOUNT" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UNIT_PRICE_LOC]"
+                      dataType="cy"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UNIT_PRICE_LOC]"
+                      name="UNIT_PRICE_LOC" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOTAL_DISCOUNT_LOC]"
+                      dataType="cy"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOTAL_DISCOUNT_LOC]"
+                      name="TOTAL_DISCOUNT_LOC" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSFER_PRICE_EUR]"
+                      dataType="cy"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TRANSFER_PRICE_EUR]"
+                      name="TRANSFER_PRICE_EUR" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REVENUE_LOC]"
+                      dataType="cy"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[REVENUE_LOC]"
+                      name="REVENUE_LOC" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VAT_PERCENT]"
+                      dataType="r8"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VAT_PERCENT]"
+                      name="VAT_PERCENT" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_CHANGE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LAST_CHANGE_DATE]"
+                      name="LAST_CHANGE_DATE" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DailySales.Paths[Lookup Match Output]"
+              endId="Package\Load DailySales\Lookup.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load DailySales\Lookup Material Id.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load DailySales.Paths[Lookup No Match Output]"
+              endId="Package\Load DailySales\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load DailySales\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load DailySales.Paths[OLE DB Source Output]"
+              endId="Package\Load DailySales\Lookup Material Id.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DailySales\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Load DailySales"
+          TopLeft="491,220" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load DailySales">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Load DailySales\Lookup Material Id"
+          TopLeft="676,314" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load DailySales\OLE DB Destination"
+          TopLeft="660,603" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Load DailySales\Lookup"
+          TopLeft="679,453" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load DailySales\OLE DB Source"
+          TopLeft="655,211" />
+        <EdgeLayout
+          Id="Package\Load DailySales.Paths[Lookup No Match Output]"
+          TopLeft="735.5,495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,108"
+              Start="0,0"
+              End="10,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50"
+                    Point2="0,54"
+                    Point3="4,54" />
+                  <mssgle:LineSegment
+                    End="6,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,54"
+                    Point2="10,54"
+                    Point3="10,58" />
+                  <mssgle:LineSegment
+                    End="10,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.80638671875,59,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DailySales.Paths[Lookup Match Output]"
+          TopLeft="759.5,356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24,97"
+              Start="0,0"
+              End="-24,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="-4,48.5" />
+                  <mssgle:LineSegment
+                    End="-20,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20,48.5"
+                    Point2="-24,48.5"
+                    Point3="-24,52.5" />
+                  <mssgle:LineSegment
+                    End="-24,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.19138671875,53.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DailySales.Paths[OLE DB Source Output]"
+          TopLeft="730,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.5,61"
+              Start="0,0"
+              End="29.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="25.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,30.5"
+                    Point2="29.5,30.5"
+                    Point3="29.5,34.5" />
+                  <mssgle:LineSegment
+                    End="29.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
