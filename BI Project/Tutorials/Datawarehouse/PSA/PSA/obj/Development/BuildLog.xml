@@ -2,23 +2,33 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>PSA</Name>
-    <LastWriteTime>2022-02-18T14:21:06.3111679Z</LastWriteTime>
+    <LastWriteTime>2022-02-18T15:58:11.1405366Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ERP to PSA (DimensionalData).dtsx</Name>
-      <LastWriteTime>2022-02-15T13:37:38.283663Z</LastWriteTime>
+      <LastWriteTime>2022-02-21T10:46:45.8802477Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ERP to PSA (FactsData).dtsx</Name>
-      <LastWriteTime>2022-02-18T12:46:18.2978699Z</LastWriteTime>
+      <LastWriteTime>2022-02-21T10:23:43.560325Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>PSA to ODS (Dimensions).dtsx</Name>
-      <LastWriteTime>2022-02-18T15:50:52.334813Z</LastWriteTime>
+      <LastWriteTime>2022-02-21T11:05:16.766406Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Final Package.dtsx</Name>
+      <LastWriteTime>2022-02-18T15:58:11.0955365Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>PSA to ODS(FactsData).dtsx</Name>
+      <LastWriteTime>2022-02-21T10:17:40.9024959Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
