@@ -17,7 +17,7 @@
             <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAma0KpQ8Ztk6BpwAk9wD3lQAAAABAAAAAQQBkAHYAZQBuAHQAdQByAGUAIABCAGkAawBlAHMAIABTAGEAbABlAHMAIABEAGEAdABhACAATQBhAHIAdAAAABBmAAAAAQAAIAAAALqKcL9zylyRWqhuH1wmE6hfOajPzkDTrspMNnN0/lzQAAAAAA6AAAAAAgAAIAAAAGEUJTMrWa4udHPxsR2kMSUa4jZGp8+O3QrAtyAuhDDoIAAAAHIuK71wvVPI9PqLDmSv4yN3J605tJDvqdllmq7X+qdzQAAAALJ9kBDfCRskRGqk8fN0eDuWisYDiQlM5fwWkAhJPDRg1mQY1dmQzLSRIw34pM4aAPkaBbS1yIoeC6VCezFF56o=</Value>
           </ConfigurationSetting>
         </UserPasswords>
-        <TargetServer>http://aei-sql2.avans.nl/OLAP/msmdpump.dll</TargetServer>
+        <TargetServer>.</TargetServer>
         <TargetDatabase>2141535-Monthly_Sales_Analysis</TargetDatabase>
         <StartObject>
           <ObjectId></ObjectId>
