@@ -7,4 +7,3 @@ Id	Type	RefrigerationFlag	PowerFlag	Length	Cubes	EuroPricePerKm
 6	Safe	No	D	6,10	38,51	3,00
 7	anti-explosion	No	China	6,10	38,51	5,00
 8	Secret	No	N	6,10	38,51	1,50
-

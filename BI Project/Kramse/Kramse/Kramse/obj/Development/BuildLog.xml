@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Kramse</Name>
-    <LastWriteTime>2022-03-15T11:00:32.1203156Z</LastWriteTime>
+    <LastWriteTime>2022-03-15T14:01:44.5291468Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>FilesToRAW.dtsx</Name>
-      <LastWriteTime>2022-03-15T11:00:32.052497Z</LastWriteTime>
+      <LastWriteTime>2022-03-15T12:08:10.4838005Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>RAWToRDBMS.dtsx</Name>
-      <LastWriteTime>2022-03-10T12:54:44.5494248Z</LastWriteTime>
+      <LastWriteTime>2022-03-15T14:17:23.3980235Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

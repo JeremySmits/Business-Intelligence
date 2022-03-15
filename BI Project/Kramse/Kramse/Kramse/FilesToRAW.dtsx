@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="FilesToRAW"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{AAAE0745-B8B2-4F5B-95A7-5A5929C23581}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{B6C758EF-AE77-46A9-AFA8-568AE254D52D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -279,7 +279,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C3BBBB95-8D9C-4F1C-AB26-4830359544AF}"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.KC_RAW_POI;&#xA;DELETE FROM dbo.KC_RAW_CONTAINER;&#xA;DELETE FROM dbo.KC_RAW_CONSIGNOR;&#xA;DELETE FROM dbo.KC_RAW_Access_Port;&#xA;DELETE FROM dbo.KC_RAW_Access_Item;&#xA;DELETE FROM dbo.KC_RAW_Access_Port;&#xA;DELETE FROM dbo.KC_RAW_Access_Ship;&#xA;DELETE FROM dbo.KC_RAW_Access_Shipment;&#xA;DELETE FROM dbo.KC_RAW_Access_Shipment_Detail;&#xA;DELETE FROM dbo.KC_RAW_Access_Voyage;&#xA;DELETE FROM dbo.KC_RAW_Access_Voyage_Port;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.RAW_MRV;&#xA;DELETE FROM dbo.RAW_CONTAINER;&#xA;DELETE FROM dbo.RAW_CONSIGNOR;&#xA;DELETE FROM dbo.TPS_Port;&#xA;DELETE FROM dbo.TPS_Item;&#xA;DELETE FROM dbo.TPS_Port;&#xA;DELETE FROM dbo.TPS_Ship;&#xA;DELETE FROM dbo.TPS_Shipment;&#xA;DELETE FROM dbo.TPS_Shipment_Detail;&#xA;DELETE FROM dbo.TPS_Voyage;&#xA;DELETE FROM dbo.TPS_Voyage_Port;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -329,7 +329,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Id]"
-                      dataType="decimal"
+                      dataType="i1"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Container\Load Container.Outputs[Flat File Source Output].ExternalColumns[Id]"
@@ -562,7 +562,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_CONTAINER]</property>
+                  name="OpenRowset">[dbo].[RAW_CONTAINER]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -620,7 +620,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
-                      cachedDataType="decimal"
+                      cachedDataType="i1"
                       cachedName="Id"
                       externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Id]" />
@@ -631,13 +631,6 @@
                       cachedName="Type"
                       externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Type]" />
-                    <inputColumn
-                      refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RefrigerationFlag]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="RefrigerationFlag"
-                      externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
-                      lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[RefrigerationFlag]" />
                     <inputColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PowerFlag]"
                       cachedDataType="wstr"
@@ -658,6 +651,13 @@
                       externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Cubes]" />
                     <inputColumn
+                      refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RefrigerationFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefrigerationFlag"
+                      externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
+                      lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[RefrigerationFlag]" />
+                    <inputColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EuroPricePerKm]"
                       cachedDataType="decimal"
                       cachedName="EuroPricePerKm"
@@ -668,7 +668,7 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
@@ -676,27 +676,33 @@
                       length="50"
                       name="Type" />
                     <externalMetadataColumn
-                      refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
-                      dataType="wstr"
-                      length="50"
-                      name="RefrigerationFlag" />
-                    <externalMetadataColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
                       dataType="wstr"
                       length="50"
                       name="PowerFlag" />
                     <externalMetadataColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
-                      dataType="r8"
-                      name="Length" />
+                      dataType="numeric"
+                      name="Length"
+                      precision="28"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
-                      dataType="r8"
-                      name="Cubes" />
+                      dataType="numeric"
+                      name="Cubes"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="RefrigerationFlag" />
                     <externalMetadataColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
-                      dataType="r8"
-                      name="EuroPricePerKm" />
+                      dataType="numeric"
+                      name="EuroPricePerKm"
+                      precision="28"
+                      scale="2" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -766,7 +772,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_CONSIGNOR]</property>
+                  name="OpenRowset">[dbo].[RAW_CONSIGNOR]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2405,7 +2411,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_POI]</property>
+                  name="OpenRowset">[dbo].[RAW_MRV]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3097,7 +3103,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Item]</property>
+                  name="OpenRowset">[dbo].[TPS_Item]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4678,7 +4684,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Port]</property>
+                  name="OpenRowset">[dbo].[TPS_Port]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4847,7 +4853,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Ship]</property>
+                  name="OpenRowset">[dbo].[TPS_Ship]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -5018,7 +5024,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Shipment]</property>
+                  name="OpenRowset">[dbo].[TPS_Shipment]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -5191,7 +5197,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Shipment_Detail]</property>
+                  name="OpenRowset">[dbo].[TPS_Shipment_Detail]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -5336,7 +5342,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Voyage]</property>
+                  name="OpenRowset">[dbo].[TPS_Voyage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -5489,7 +5495,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[KC_RAW_Access_Voyage_Port]</property>
+                  name="OpenRowset">[dbo].[TPS_Voyage_Port]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -5901,13 +5907,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Load Container\Load Container"
-          TopLeft="548,226" />
-        <NodeLayout
           Size="171,42"
           Id="Package\Load Container\OLE DB Destination"
           TopLeft="549,315" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load Container\Load Container"
+          TopLeft="548,226" />
         <EdgeLayout
           Id="Package\Load Container.Paths[Flat File Source Output]"
           TopLeft="623,268">
@@ -6104,25 +6110,25 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="124,42"
-          Id="Package\Load TPS\Load Port"
-          TopLeft="374,212" />
+          Size="192,42"
+          Id="Package\Load TPS\Voyage port Destination"
+          TopLeft="1316,347" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Load TPS\Ship Destination"
+          TopLeft="529,354" />
         <NodeLayout
           Size="127,42"
           Id="Package\Load TPS\Load Item"
           TopLeft="195,209" />
         <NodeLayout
-          Size="192,42"
-          Id="Package\Load TPS\Voyage port Destination"
-          TopLeft="1316,347" />
+          Size="124,42"
+          Id="Package\Load TPS\Load Port"
+          TopLeft="374,212" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\Load TPS\Port Destination"
-          TopLeft="319,356" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Load TPS\Voyage Destination"
-          TopLeft="1127,358" />
+          Size="180,42"
+          Id="Package\Load TPS\Shipment Destination"
+          TopLeft="705,357" />
         <NodeLayout
           Size="124,42"
           Id="Package\Load TPS\Load ship"
@@ -6136,25 +6142,25 @@
           Id="Package\Load TPS\Load Shipment Detail"
           TopLeft="918,209" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\Load TPS\Ship Destination"
-          TopLeft="529,354" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Load TPS\Shipment Destination"
-          TopLeft="705,357" />
+          Size="208,42"
+          Id="Package\Load TPS\Shipment detail Destination"
+          TopLeft="897,359" />
         <NodeLayout
           Size="140,42"
           Id="Package\Load TPS\Load Voyage"
           TopLeft="1134,211" />
         <NodeLayout
-          Size="208,42"
-          Id="Package\Load TPS\Shipment detail Destination"
-          TopLeft="897,359" />
+          Size="170,42"
+          Id="Package\Load TPS\Voyage Destination"
+          TopLeft="1127,358" />
         <NodeLayout
           Size="162,42"
           Id="Package\Load TPS\Load Voyage port"
           TopLeft="1301,211" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load TPS\Port Destination"
+          TopLeft="319,356" />
         <NodeLayout
           Size="157,42"
           Id="Package\Load TPS\Item Destination"
