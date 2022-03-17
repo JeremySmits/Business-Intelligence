@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="FilesToRAW"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{B6C758EF-AE77-46A9-AFA8-568AE254D52D}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{5F25CEB4-DFB7-4E98-8AFB-8D17B05456DF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4947,6 +4947,12 @@
                       cachedName="Sh_Yearcost"
                       externalMetadataColumnId="Package\Load TPS\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
                       lineageId="Package\Load TPS\Load ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]" />
+                    <inputColumn
+                      refId="Package\Load TPS\Ship Destination.Inputs[OLE DB Destination Input].Columns[Sh_MaxTEU]"
+                      cachedDataType="i4"
+                      cachedName="Sh_MaxTEU"
+                      externalMetadataColumnId="Package\Load TPS\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxNumberContain]"
+                      lineageId="Package\Load TPS\Load ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
