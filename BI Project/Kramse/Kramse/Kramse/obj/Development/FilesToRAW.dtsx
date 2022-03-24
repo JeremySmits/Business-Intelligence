@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="FilesToRAW"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{5F25CEB4-DFB7-4E98-8AFB-8D17B05456DF}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{7736468C-5C7C-4D6F-997A-6C2DEA3085A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1176,7 +1176,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[IMO Number]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[IMO Number]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[IMO Number]"
@@ -1186,7 +1186,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Name]"
@@ -1196,7 +1196,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Ship type]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ship type]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Ship type]"
@@ -1206,7 +1206,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Reporting Period]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Reporting Period]"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Reporting Period]"
                       name="Reporting Period"
@@ -1215,7 +1215,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Technical efficiency]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Technical efficiency]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Technical efficiency]"
@@ -1225,7 +1225,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Port of Registry]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Port of Registry]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Port of Registry]"
@@ -1235,7 +1235,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Home Port]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Home Port]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Home Port]"
@@ -1245,7 +1245,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Ice Class]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ice Class]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Ice Class]"
@@ -1255,7 +1255,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Number]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier Number]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Number]"
@@ -1265,7 +1265,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier Name]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Name]"
@@ -1275,7 +1275,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier NAB]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier NAB]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier NAB]"
@@ -1285,7 +1285,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Address]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier Address]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Address]"
@@ -1295,7 +1295,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier City]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier City]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier City]"
@@ -1305,7 +1305,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Accreditation number]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier Accreditation number]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Accreditation number]"
@@ -1315,7 +1315,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Country]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Verifier Country]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Verifier Country]"
@@ -1325,7 +1325,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[A]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[A]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[A]"
@@ -1335,7 +1335,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[B]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[B]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[B]"
@@ -1345,7 +1345,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[C]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[C]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[C]"
@@ -1355,7 +1355,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[D]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[D]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[D]"
@@ -1365,7 +1365,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total fuel consumption (m tonnes)]"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]"
                       name="Total fuel consumption (m tonnes)"
@@ -1374,7 +1374,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
@@ -1384,7 +1384,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual Total time spent at sea (hours)]"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]"
                       name="Annual Total time spent at sea (hours)"
@@ -1393,7 +1393,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
                       name="Annual average Fuel consumption per distance (kg / n mile)"
@@ -1402,7 +1402,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
@@ -1412,7 +1412,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
@@ -1422,7 +1422,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
@@ -1432,7 +1432,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
                       name="Annual average Fuel consumption per transport work (pax) (g / pa"
@@ -1441,7 +1441,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
@@ -1451,7 +1451,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Through ice (n miles)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Through ice (n miles)]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Through ice (n miles)]"
@@ -1461,7 +1461,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea (hours)]"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]"
                       name="Total time spent at sea (hours)"
@@ -1470,7 +1470,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea through ice (hours)]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]"
@@ -1480,7 +1480,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
@@ -1490,7 +1490,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
@@ -1500,7 +1500,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
@@ -1510,7 +1510,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
@@ -1520,7 +1520,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
@@ -1530,7 +1530,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
@@ -1540,7 +1540,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Additional information to facilitate the understanding of the re]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]"
@@ -1550,7 +1550,7 @@
                       refId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="IgnoreFailure"
+                      errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
                       length="255"
                       lineageId="Package\Load MRV\Excel Source.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
@@ -5911,7 +5911,7 @@
     design-time-name="Package\Load Container">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Load Container\OLE DB Destination"
@@ -5951,7 +5951,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5974,7 +5976,7 @@
     design-time-name="Package\Load Cosignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="176,42"
           Id="Package\Load Cosignor\Cosignor Destination"
@@ -6002,7 +6004,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6114,7 +6118,7 @@
     design-time-name="Package\Load TPS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="192,42"
           Id="Package\Load TPS\Voyage port Destination"
@@ -6172,40 +6176,6 @@
           Id="Package\Load TPS\Item Destination"
           TopLeft="124,360" />
         <EdgeLayout
-          Id="Package\Load TPS.Paths[OLE DB Source Output6]"
-          TopLeft="1382,253">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="30,94"
-              Start="0,0"
-              End="30,86.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43"
-                    Point2="0,47"
-                    Point3="4,47" />
-                  <mssgle:LineSegment
-                    End="26,47" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26,47"
-                    Point2="30,47"
-                    Point3="30,51" />
-                  <mssgle:LineSegment
-                    End="30,86.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Load TPS.Paths[OLE DB Source Output5]"
           TopLeft="1204,253">
           <EdgeLayout.Curve>
@@ -6236,7 +6206,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6258,7 +6230,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6292,7 +6266,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6326,7 +6302,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6360,7 +6338,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6394,7 +6374,45 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TPS.Paths[OLE DB Source Output6]"
+          TopLeft="1382,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,94"
+              Start="0,0"
+              End="30,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="4,47" />
+                  <mssgle:LineSegment
+                    End="26,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,47"
+                    Point2="30,47"
+                    Point3="30,51" />
+                  <mssgle:LineSegment
+                    End="30,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
