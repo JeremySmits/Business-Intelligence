@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="PSAToODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{51CAC045-8F61-4D7B-9C28-AB3680FC0D19}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{2A3BD2D5-CDC2-4BDD-A231-8DF3793A89CB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -273,6 +273,631 @@
               </outputs>
             </component>
             <component
+              refId="Package\Load Container Dimension\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Container Dimension\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Container Dimension\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Output].Columns[EndDate]"
+                      dataType="dbDate"
+                      description="EndDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Container Dimension\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Container Dimension\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Container Dimension\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Container Dimension\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]"
+                      dataType="dbDate"
+                      description="StartDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Container Dimension\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Container Dimension\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Container]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Container Dimension\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[RefrigerationFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefrigerationFlag"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[PowerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PowerFlag"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[PowerFlag]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Length]"
+                      cachedDataType="numeric"
+                      cachedName="Length"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Length]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Cubes]"
+                      cachedDataType="numeric"
+                      cachedName="Cubes"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Cubes]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[EuroPricePerKm]"
+                      cachedDataType="numeric"
+                      cachedName="EuroPricePerKm"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerRowId]"
+                      dataType="i4"
+                      name="ContainerRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="RefrigerationFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="PowerFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
+                      dataType="numeric"
+                      name="Length"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
+                      dataType="numeric"
+                      name="Cubes"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
+                      dataType="numeric"
+                      name="EuroPricePerKm"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbDate"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Container Dimension\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Container Dimension\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Container] SET [EndDate] = ? WHERE [Id] = ? AND [EndDate] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Container Dimension\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[EndDate]"
+                      cachedDataType="dbDate"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbDate"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Container Dimension\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Container] SET [Cubes] = ?,[Length] = ?,[RefrigerationFlag] = ? WHERE [Id] = ? AND [EndDate] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Container Dimension\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Cubes]"
+                      cachedDataType="numeric"
+                      cachedName="Cubes"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Cubes]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Length]"
+                      cachedDataType="numeric"
+                      cachedName="Length"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Length]" />
+                    <inputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[RefrigerationFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefrigerationFlag"
+                      externalMetadataColumnId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="28"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="28"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Container Dimension\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Container Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Container Dimension\Slowly Changing Dimension"
               componentClassID="Microsoft.SCD"
               contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
@@ -284,11 +909,11 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Cubes], [EuroPricePerKm], [Id], [Length], [PowerFlag], [RefrigerationFlag], [Type],[StartDate],[EndDate] FROM [dbo].[Dim_Container]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                  name="CurrentRowWhere"></property>
+                  name="CurrentRowWhere">[StartDate] IS NOT NULL AND [EndDate] IS NULL</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
@@ -296,7 +921,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">true</property>
+                  name="FailOnFixedAttributeChange">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies the column name for the inferred member."
@@ -310,7 +935,7 @@
                   description="Indicates whether the transformation fails when a lookup of an existing record fails."
                   name="FailOnLookupFailure">false</property>
                 <property
-                  dataType="System.UInt32"
+                  dataType="System.Int32"
                   description="Specifies that all rows in the input are new or the transformation detects the change type."
                   name="IncomingRowChangeType"
                   typeConverter="IncomingRowChangeType">1</property>
@@ -322,6 +947,8 @@
               <connections>
                 <connection
                   refId="Package\Load Container Dimension\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -329,8 +956,156 @@
                 <input
                   refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
                   name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Cubes]"
+                      cachedDataType="numeric"
+                      cachedName="Cubes"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Cubes]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Cubes]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[EuroPricePerKm]"
+                      cachedDataType="numeric"
+                      cachedName="EuroPricePerKm"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EuroPricePerKm]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Id]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Length]"
+                      cachedDataType="numeric"
+                      cachedName="Length"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Length]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Length]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PowerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PowerFlag"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PowerFlag]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[PowerFlag]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[RefrigerationFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefrigerationFlag"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RefrigerationFlag]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Type]"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Type]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Cubes]"
+                      dataType="numeric"
+                      name="Cubes"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EuroPricePerKm]"
+                      dataType="numeric"
+                      name="EuroPricePerKm"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Length]"
+                      dataType="numeric"
+                      name="Length"
+                      precision="28"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PowerFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="PowerFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RefrigerationFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="RefrigerationFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EndDate]"
+                      dataType="dbDate"
+                      name="EndDate" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -384,13 +1159,333 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load Container Dimension\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[RefrigerationFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefrigerationFlag"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[PowerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PowerFlag"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[PowerFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[PowerFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[Length]"
+                      cachedDataType="numeric"
+                      cachedName="Length"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Length]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Length]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[Cubes]"
+                      cachedDataType="numeric"
+                      cachedName="Cubes"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Cubes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Cubes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1].Columns[EuroPricePerKm]"
+                      cachedDataType="numeric"
+                      cachedName="EuroPricePerKm"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[RefrigerationFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefrigerationFlag"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[PowerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PowerFlag"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[PowerFlag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[PowerFlag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[Length]"
+                      cachedDataType="numeric"
+                      cachedName="Length"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Length]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Length]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[Cubes]"
+                      cachedDataType="numeric"
+                      cachedName="Cubes"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[Cubes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Cubes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2].Columns[EuroPricePerKm]"
+                      cachedDataType="numeric"
+                      cachedName="EuroPricePerKm"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Container Dimension\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Type]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Type]"
+                      name="Type" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]"
+                      name="RefrigerationFlag" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[PowerFlag]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[PowerFlag]"
+                      name="PowerFlag" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Length]"
+                      dataType="numeric"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Length]"
+                      name="Length"
+                      precision="28"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Cubes]"
+                      dataType="numeric"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[Cubes]"
+                      name="Cubes"
+                      precision="28"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]"
+                      dataType="numeric"
+                      lineageId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]"
+                      name="EuroPricePerKm"
+                      precision="28"
+                      scale="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
+            <path
+              refId="Package\Load Container Dimension.Paths[Changing Attribute Updates Output]"
+              endId="Package\Load Container Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Load Container Dimension\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Load Container Dimension.Paths[Derived Column Output]"
+              endId="Package\Load Container Dimension\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Load Container Dimension\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Container Dimension.Paths[Derived Column Output1]"
+              endId="Package\Load Container Dimension\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load Container Dimension\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Container Dimension.Paths[Historical Attribute Inserts Output]"
+              endId="Package\Load Container Dimension\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\Load Container Dimension\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\Load Container Dimension.Paths[New Output]"
+              endId="Package\Load Container Dimension\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\Load Container Dimension\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Load Container Dimension.Paths[OLE DB Command Output]"
+              endId="Package\Load Container Dimension\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\Load Container Dimension\OLE DB Command.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\Load Container Dimension.Paths[OLE DB Source Output]"
               endId="Package\Load Container Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="OLE DB Source Output"
               startId="Package\Load Container Dimension\Container Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load Container Dimension.Paths[Union All Output 1]"
+              endId="Package\Load Container Dimension\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\Load Container Dimension\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -425,7 +1520,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[RAW_CONSIGNOR]</property>
+                  name="OpenRowset">[dbo].[Dim_Consignor]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -460,8 +1555,8 @@
               <connections>
                 <connection
                   refId="Package\Load Cosginor Dimension\Cosignor Source.Connections[OleDbConnection]"
-                  connectionManagerID="{F3EEE332-8FBB-42FC-ADE8-309DF557E939}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Kramse_RDBMS]"
+                  connectionManagerID="{CF298F09-572C-409C-A9AC-F5A5DAFD2E92}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_PSA]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -596,7 +1691,1021 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load Cosginor Dimension\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Output].Columns[EndDate]"
+                      dataType="dbDate"
+                      description="EndDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Cosginor Dimension\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]"
+                      dataType="dbDate"
+                      description="StartDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Cosginor Dimension\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Consignor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Cosginor Dimension\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Consignor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consignor"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Consignor]"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Consignor]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Discount]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorRowId]"
+                      dataType="i4"
+                      name="ConsignorRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Consignor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Consignor" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="255"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      dataType="r8"
+                      name="Discount" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbDate"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Cosginor Dimension\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Consignor] SET [EndDate] = ? WHERE [Id] = ? AND [EndDate] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Cosginor Dimension\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[EndDate]"
+                      cachedDataType="dbDate"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbDate"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Cosginor Dimension\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Consignor] SET [Consignor] = ? WHERE [Id] = ? AND [EndDate] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Cosginor Dimension\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Consignor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consignor"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Consignor]" />
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Cosginor Dimension\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [City], [Consignor], [Country], [Discount], [Id],[StartDate],[EndDate] FROM [dbo].[Dim_Consignor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[StartDate] IS NOT NULL AND [EndDate] IS NULL</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[City]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Consignor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consignor"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Consignor]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Consignor]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Country]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Discount]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Discount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Id]"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Consignor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Consignor" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="255"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Discount]"
+                      dataType="r8"
+                      name="Discount" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EndDate]"
+                      dataType="dbDate"
+                      name="EndDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Cosginor Dimension\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1].Columns[Consignor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consignor"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Consignor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Consignor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Country"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Discount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Discount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2].Columns[Consignor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Consignor"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Consignor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Consignor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Country"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Country]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Country]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Discount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Discount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      lineageId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Consignor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Consignor]"
+                      name="Consignor" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Discount]"
+                      dataType="r8"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Discount]"
+                      name="Discount" />
+                    <outputColumn
+                      refId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1].Columns[Id]"
+                      name="Id" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
+          <paths>
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[Changing Attribute Updates Output]"
+              endId="Package\Load Cosginor Dimension\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[Derived Column Output]"
+              endId="Package\Load Cosginor Dimension\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Load Cosginor Dimension\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[Derived Column Output1]"
+              endId="Package\Load Cosginor Dimension\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load Cosginor Dimension\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[Historical Attribute Inserts Output]"
+              endId="Package\Load Cosginor Dimension\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[New Output]"
+              endId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[OLE DB Command Output]"
+              endId="Package\Load Cosginor Dimension\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\Load Cosginor Dimension\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[OLE DB Source Output]"
+              endId="Package\Load Cosginor Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Cosginor Dimension\Cosignor Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load Cosginor Dimension.Paths[Union All Output 1]"
+              endId="Package\Load Cosginor Dimension\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\Load Cosginor Dimension\Union All.Outputs[Union All Output 1]" />
+          </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3515,12 +5624,12 @@ where [refTable].[VV_VoyageId] = ?</property>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{5adbd476-a7db-410f-88f0-0050a359b6c3}"
+      DTS:DTSID="{3ADEDA79-8316-4A80-8200-996DD5B4E98C}"
       DTS:From="Package\Load Container Dimension"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 5"
+      DTS:ObjectName="Constraint"
       DTS:To="Package\Load Shipment Fact" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
@@ -3570,7 +5679,7 @@ where [refTable].[VV_VoyageId] = ?</property>
         <NodeLayout
           Size="203,42"
           Id="Package\Load Container Dimension"
-          TopLeft="60,209.25" />
+          TopLeft="99,219.25" />
         <NodeLayout
           Size="198,42"
           Id="Package\Load Cosginor Dimension"
@@ -3591,40 +5700,6 @@ where [refTable].[VV_VoyageId] = ?</property>
           Size="172,42"
           Id="Package\Load Shipment Fact"
           TopLeft="483,406.25" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="161.5,251.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="352.833333333333,155"
-              Start="0,0"
-              End="352.833333333333,147.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,109.607954545455" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,109.607954545455"
-                    Point2="0,113.607954545455"
-                    Point3="4,113.607954545455" />
-                  <mssgle:LineSegment
-                    End="348.833333333333,113.607954545455" />
-                  <mssgle:CubicBezierSegment
-                    Point1="348.833333333333,113.607954545455"
-                    Point2="352.833333333333,113.607954545455"
-                    Point3="352.833333333333,117.607954545455" />
-                  <mssgle:LineSegment
-                    End="352.833333333333,147.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="429,263.25">
@@ -3761,6 +5836,40 @@ where [refTable].[VV_VoyageId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="200.5,261.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="313.833333333333,145"
+              Start="0,0"
+              End="313.833333333333,137.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,102.278409090909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,102.278409090909"
+                    Point2="0,106.278409090909"
+                    Point3="4,106.278409090909" />
+                  <mssgle:LineSegment
+                    End="309.833333333333,106.278409090909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="309.833333333333,106.278409090909"
+                    Point2="313.833333333333,106.278409090909"
+                    Point3="313.833333333333,110.278409090909" />
+                  <mssgle:LineSegment
+                    End="313.833333333333,137.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3768,35 +5877,267 @@ where [refTable].[VV_VoyageId] = ?</property>
     design-time-name="Package\Load Container Dimension">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Load Container Dimension\Container Source"
-          TopLeft="340,205" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="209,42"
           Id="Package\Load Container Dimension\Slowly Changing Dimension"
-          TopLeft="317,344" />
+          TopLeft="128,107.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Load Container Dimension\Container Source"
+          TopLeft="152.5,5.5" />
         <EdgeLayout
           Id="Package\Load Container Dimension.Paths[OLE DB Source Output]"
-          TopLeft="420.75,247">
+          TopLeft="232.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,97"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,89.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,89.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load Container Dimension\Derived Column"
+          TopLeft="17.5000000000001,209.5" />
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87.75,60"
+              Start="0,0"
+              End="-87.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="-83.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="-87.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Container Dimension\OLE DB Command"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[Derived Column Output]"
+          TopLeft="91.5000000000001,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Load Container Dimension\Union All"
+          TopLeft="172,413.5" />
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[New Output]"
+          TopLeft="232.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.8333333333334,264"
+              Start="0,0"
+              End="18.8333333333334,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.332789559543" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,152.332789559543"
+                    Point2="0,156.332789559543"
+                    Point3="4,156.332789559543" />
+                  <mssgle:LineSegment
+                    End="14.8333333333334,156.332789559543" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.8333333333334,156.332789559543"
+                    Point2="18.8333333333334,156.332789559543"
+                    Point3="18.8333333333334,160.332789559543" />
+                  <mssgle:LineSegment
+                    End="18.8333333333334,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,60"
+              Start="0,0"
+              End="125.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Container Dimension\Derived Column 1"
+          TopLeft="151,515.5" />
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[Union All Output 1]"
+          TopLeft="232.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Container Dimension\Insert Destination"
+          TopLeft="151,617.5" />
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[Derived Column Output1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load Container Dimension\OLE DB Command 1"
+          TopLeft="294,209.5" />
+        <EdgeLayout
+          Id="Package\Load Container Dimension.Paths[Changing Attribute Updates Output]"
+          TopLeft="282.75,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.75,60"
+              Start="0,0"
+              End="98.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="94.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.75,20.503937007874"
+                    Point2="98.75,20.503937007874"
+                    Point3="98.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="98.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3815,31 +6156,387 @@ where [refTable].[VV_VoyageId] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Container Dimension\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{5CCC3CA6-D547-479D-A26A-23919A820ADA}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Container]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[Cubes]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Cubes&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;EuroPricePerKm&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[Id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[Length]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Length&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[PowerFlag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PowerFlag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RefrigerationFlag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Container Source.Outputs[OLE DB Source Output].Columns[Type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;StartDate&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;EndDate&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Cosginor Dimension">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="155,42"
           Id="Package\Load Cosginor Dimension\Cosignor Source"
-          TopLeft="349,293" />
+          TopLeft="155,5.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Load Cosginor Dimension\Slowly Changing Dimension"
+          TopLeft="128,107.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load Cosginor Dimension\Derived Column"
+          TopLeft="17.5000000000001,209.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87.75,60"
+              Start="0,0"
+              End="-87.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="-83.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="-87.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Cosginor Dimension\OLE DB Command"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[Derived Column Output]"
+          TopLeft="91.5000000000001,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Load Cosginor Dimension\Union All"
+          TopLeft="172,413.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[New Output]"
+          TopLeft="232.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.8333333333334,264"
+              Start="0,0"
+              End="18.8333333333334,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.332789559543" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,152.332789559543"
+                    Point2="0,156.332789559543"
+                    Point3="4,156.332789559543" />
+                  <mssgle:LineSegment
+                    End="14.8333333333334,156.332789559543" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.8333333333334,156.332789559543"
+                    Point2="18.8333333333334,156.332789559543"
+                    Point3="18.8333333333334,160.332789559543" />
+                  <mssgle:LineSegment
+                    End="18.8333333333334,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,60"
+              Start="0,0"
+              End="125.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Cosginor Dimension\Derived Column 1"
+          TopLeft="151,515.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[Union All Output 1]"
+          TopLeft="232.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Cosginor Dimension\Insert Destination"
+          TopLeft="151,617.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[Derived Column Output1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load Cosginor Dimension\OLE DB Command 1"
+          TopLeft="294,209.5" />
+        <EdgeLayout
+          Id="Package\Load Cosginor Dimension.Paths[Changing Attribute Updates Output]"
+          TopLeft="282.75,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.75,60"
+              Start="0,0"
+              End="98.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="94.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.75,20.503937007874"
+                    Point2="98.75,20.503937007874"
+                    Point3="98.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="98.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Cosginor Dimension\Cosignor Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Item Dimension">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="209,42"
+          Id="Package\Load Item Dimension\Slowly Changing Dimension"
+          TopLeft="472.5,310.5" />
+        <NodeLayout
           Size="137,42"
           Id="Package\Load Item Dimension\Item Source"
           TopLeft="508.5,208.5" />
         <NodeLayout
-          Size="209,42"
-          Id="Package\Load Item Dimension\Slowly Changing Dimension"
-          TopLeft="472.5,310.5" />
+          Size="163,42"
+          Id="Package\Load Item Dimension\Insert Destination"
+          TopLeft="270.5,412.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Load Item Dimension\OLE DB Command"
+          TopLeft="494,412.5" />
         <EdgeLayout
           Id="Package\Load Item Dimension.Paths[OLE DB Source Output]"
           TopLeft="577,250.5">
@@ -3862,10 +6559,6 @@ where [refTable].[VV_VoyageId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Item Dimension\Insert Destination"
-          TopLeft="270.5,412.5" />
         <EdgeLayout
           Id="Package\Load Item Dimension.Paths[New Output]"
           TopLeft="543.5,352.5">
@@ -3902,10 +6595,6 @@ where [refTable].[VV_VoyageId] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Load Item Dimension\OLE DB Command"
-          TopLeft="494,412.5" />
         <EdgeLayout
           Id="Package\Load Item Dimension.Paths[Inferred Member Updates Output]"
           TopLeft="610.5,352.5">
@@ -3945,6 +6634,73 @@ where [refTable].[VV_VoyageId] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Item Dimension\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{5CCC3CA6-D547-479D-A26A-23919A820ADA}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Item]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_category]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;item_category&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_description]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;item_description&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_hazard_flag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;item_hazard_flag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_key]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;item_key&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_mfgr]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;item_mfgr&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_storage_type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;item_storage_type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Port Dimension">
     <LayoutInfo>
@@ -3963,13 +6719,21 @@ where [refTable].[VV_VoyageId] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="135,42"
-          Id="Package\Load Ship Dimension\Ship Source"
-          TopLeft="244.5,5.5" />
+          Size="166,42"
+          Id="Package\Load Ship Dimension\OLE DB Command"
+          TopLeft="229,209.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\Load Ship Dimension\Slowly Changing Dimension"
           TopLeft="207.5,107.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load Ship Dimension\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Load Ship Dimension\Ship Source"
+          TopLeft="244.5,5.5" />
         <EdgeLayout
           Id="Package\Load Ship Dimension.Paths[OLE DB Source Output]"
           TopLeft="312,47.5">
@@ -3992,10 +6756,6 @@ where [refTable].[VV_VoyageId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Load Ship Dimension\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\Load Ship Dimension.Paths[New Output]"
           TopLeft="278.5,149.5">
@@ -4032,10 +6792,6 @@ where [refTable].[VV_VoyageId] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Load Ship Dimension\OLE DB Command"
-          TopLeft="229,209.5" />
         <EdgeLayout
           Id="Package\Load Ship Dimension.Paths[Inferred Member Updates Output]"
           TopLeft="345.5,149.5">
@@ -4076,6 +6832,61 @@ where [refTable].[VV_VoyageId] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Ship Dimension\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{5CCC3CA6-D547-479D-A26A-23919A820ADA}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Port]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[P_Country]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;P_Country&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[P_PortName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;P_PortName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[P_PortOrder]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;P_PortOrder&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[VPS_PortId]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;VPS_PortId&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Ship Dimension\Ship Source">
     <Properties>
       <Property>
@@ -4094,6 +6905,14 @@ where [refTable].[VV_VoyageId] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="151,42"
+          Id="Package\Load Shipment Fact\Lookup Voyage"
+          TopLeft="359,353" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Load Shipment Fact\Shipment Source"
+          TopLeft="325,150" />
+        <NodeLayout
           Size="170,42"
           Id="Package\Load Shipment Fact\Lookup VoyagePort"
           TopLeft="340,456" />
@@ -4105,14 +6924,42 @@ where [refTable].[VV_VoyageId] = ?</property>
           Size="180,42"
           Id="Package\Load Shipment Fact\Shipment Destination"
           TopLeft="314,574" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Load Shipment Fact\Shipment Source"
-          TopLeft="325,150" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Load Shipment Fact\Lookup Voyage"
-          TopLeft="359,353" />
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
+          TopLeft="425,498">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21,76"
+              Start="0,0"
+              End="-21,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="-4,38" />
+                  <mssgle:LineSegment
+                    End="-17,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17,38"
+                    Point2="-21,38"
+                    Point3="-21,42" />
+                  <mssgle:LineSegment
+                    End="-21,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.69138671875,43,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
           TopLeft="434.5,395">
@@ -4221,47 +7068,11 @@ where [refTable].[VV_VoyageId] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-          TopLeft="425,498">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-21,76"
-              Start="0,0"
-              End="-21,68.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34"
-                    Point2="0,38"
-                    Point3="-4,38" />
-                  <mssgle:LineSegment
-                    End="-17,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17,38"
-                    Point2="-21,38"
-                    Point3="-21,42" />
-                  <mssgle:LineSegment
-                    End="-21,68.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-58.69138671875,43,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Item Dimension\Slowly Changing Dimension">
+    design-time-name="Package\Load Cosginor Dimension\Slowly Changing Dimension">
     <Properties>
       <Property>
         <Name>SCDMetadata</Name>
@@ -4269,115 +7080,58 @@ where [refTable].[VV_VoyageId] = ?</property>
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;ConnectionID&gt;{5CCC3CA6-D547-479D-A26A-23919A820ADA}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Item]&lt;/TableName&gt;
+  &lt;TableName&gt;[dbo].[Dim_Consignor]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_category]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;item_category&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Cosignor Source.Outputs[OLE DB Source Output].Columns[City]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;City&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_description]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;item_description&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Cosignor Source.Outputs[OLE DB Source Output].Columns[Consignor]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Consignor&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Cosignor Source.Outputs[OLE DB Source Output].Columns[Country]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Country&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_hazard_flag]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;item_hazard_flag&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Cosignor Source.Outputs[OLE DB Source Output].Columns[Discount]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Discount&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_key]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;item_key&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Cosignor Source.Outputs[OLE DB Source Output].Columns[Id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Id&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_mfgr]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;item_mfgr&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[item_storage_type]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;item_storage_type&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
     &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
   &lt;CurrentIndicatorColumn /&gt;
   &lt;InferredIndicatorColumn /&gt;
   &lt;ValueCurrent /&gt;
   &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{5CCC3CA6-D547-479D-A26A-23919A820ADA}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Port]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[P_Country]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;P_Country&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[P_PortName]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;P_PortName&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[P_PortOrder]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;P_PortOrder&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Ship Source.Outputs[OLE DB Source Output].Columns[VPS_PortId]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;VPS_PortId&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+  &lt;StartDateColumn&gt;StartDate&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;EndDate&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>

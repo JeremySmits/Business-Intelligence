@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="RDBMSToPSA"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{DB25FD4D-729D-4EE2-B652-21C047F08F68}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{610E103E-C3BB-479C-B7D2-5E69F8F38FD4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -694,7 +694,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{CF298F09-572C-409C-A9AC-F5A5DAFD2E92}"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.Dim_Port;&#xA;DELETE FROM dbo.Dim_Ship;&#xA;DELETE FROM dbo.Dim_Consignor;&#xA;DELETE FROM dbo.Dim_Container;&#xA;DELETE FROM dbo.Dim_Item;&#xA;DELETE FROM dbo.Fact_Shipment;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.Fact_Shipment;&#xA;DELETE FROM dbo.Dim_Port;&#xA;DELETE FROM dbo.Dim_Ship;&#xA;DELETE FROM dbo.Dim_Consignor;&#xA;DELETE FROM dbo.Dim_Container;&#xA;DELETE FROM dbo.Dim_Item;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
