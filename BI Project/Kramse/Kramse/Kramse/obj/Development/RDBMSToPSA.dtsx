@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="RDBMSToPSA"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{610E103E-C3BB-479C-B7D2-5E69F8F38FD4}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{059F78B1-7E50-4F8D-8A12-99C63D748591}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3466,12 +3466,6 @@ where [refTable].[Name] = ?</property>
                       externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxNumberContain]"
                       lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_MaxNumberContain]" />
                     <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKnots]"
-                      cachedDataType="i4"
-                      cachedName="Sh_SpeedInKnots"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKnots]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]" />
-                    <inputColumn
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKm_H]"
                       cachedDataType="i4"
                       cachedName="Sh_SpeedInKm_H"
@@ -3491,13 +3485,6 @@ where [refTable].[Name] = ?</property>
                       externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
                       lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]" />
                     <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Ship type]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Ship type"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship type]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Ship type]" />
-                    <inputColumn
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Reporting Period]"
                       cachedDataType="r8"
                       cachedName="Reporting Period"
@@ -3510,55 +3497,6 @@ where [refTable].[Name] = ?</property>
                       cachedName="Technical efficiency"
                       externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Technical efficiency]"
                       lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Technical efficiency]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Port of Registry]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Port of Registry"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Port of Registry]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Port of Registry]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Verifier Name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Name"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Name]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Verifier Name]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Verifier NAB]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier NAB"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier NAB]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Verifier NAB]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Verifier Address]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Address"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Address]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Verifier Address]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Verifier City]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier City"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier City]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Verifier City]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Verifier Accreditation number]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Accreditation number"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Accreditation number]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Verifier Accreditation number]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Verifier Country]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Country"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Country]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Verifier Country]" />
                     <inputColumn
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Total fuel consumption (m tonnes)]"
                       cachedDataType="r8"
@@ -3577,19 +3515,6 @@ where [refTable].[Name] = ?</property>
                       cachedName="Annual average Fuel consumption per distance (kg / n mile)"
                       externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
                       lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average Fuel consumption per transport work (mass) (g / m"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].Columns[Total time spent at sea (hours)]"
-                      cachedDataType="r8"
-                      cachedName="Total time spent at sea (hours)"
-                      externalMetadataColumnId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total time spent at sea (hours)]"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[Total time spent at sea (hours)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3607,10 +3532,6 @@ where [refTable].[Name] = ?</property>
                       dataType="i4"
                       name="Sh_MaxNumberContain" />
                     <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKnots]"
-                      dataType="i4"
-                      name="Sh_SpeedInKnots" />
-                    <externalMetadataColumn
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
                       dataType="i4"
                       name="Sh_SpeedInKm_H" />
@@ -3624,11 +3545,6 @@ where [refTable].[Name] = ?</property>
                       dataType="cy"
                       name="Sh_Yearcost" />
                     <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship type]"
-                      dataType="wstr"
-                      length="255"
-                      name="Ship type" />
-                    <externalMetadataColumn
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Reporting Period]"
                       dataType="r8"
                       name="Reporting Period" />
@@ -3637,41 +3553,6 @@ where [refTable].[Name] = ?</property>
                       dataType="wstr"
                       length="255"
                       name="Technical efficiency" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Port of Registry]"
-                      dataType="wstr"
-                      length="255"
-                      name="Port of Registry" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Name]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier NAB]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier NAB" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Address]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Address" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier City]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier City" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Accreditation number]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Accreditation number" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Country]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Country" />
                     <externalMetadataColumn
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
                       dataType="r8"
@@ -3684,15 +3565,6 @@ where [refTable].[Name] = ?</property>
                       refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
                       dataType="r8"
                       name="Annual average Fuel consumption per distance (kg / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total time spent at sea (hours)]"
-                      dataType="r8"
-                      name="Total time spent at sea (hours)" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4672,18 +4544,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorId]"
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ConsignorId]" />
                     <inputColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[PortIdFrom]"
-                      cachedDataType="i4"
-                      cachedName="PortIdFrom"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]" />
-                    <inputColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[PortIdTo]"
-                      cachedDataType="i4"
-                      cachedName="PortIdTo"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[PortIdTo]" />
-                    <inputColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[Distance]"
                       cachedDataType="i4"
                       cachedName="Distance"
@@ -4695,13 +4555,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       cachedName="NumberContainers"
                       externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainers]" />
-                    <inputColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="ContainerNr"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
-                      lineageId="Package\Load Shipment Fact\Lookup Shipment Detail.Outputs[Lookup Match Output].Columns[ContainerNr]" />
                     <inputColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[Item]"
                       cachedDataType="i4"
@@ -4720,24 +4573,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       cachedName="VS_ShipId"
                       externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_ShipId]"
                       lineageId="Package\Load Shipment Fact\Lookup Voyage.Outputs[Lookup Match Output].Columns[VS_ShipId]" />
-                    <inputColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[V_DateDepartVoyage]"
-                      cachedDataType="dbDate"
-                      cachedName="V_DateDepartVoyage"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_DateDepartVoyage]"
-                      lineageId="Package\Load Shipment Fact\Lookup Voyage.Outputs[Lookup Match Output].Columns[V_DateDepartVoyage]" />
-                    <inputColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[VPS_PortIdStart]"
-                      cachedDataType="i4"
-                      cachedName="VPS_PortIdStart"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[VPS_PortIdStart]"
-                      lineageId="Package\Load Shipment Fact\Lookup Voyage.Outputs[Lookup Match Output].Columns[VPS_PortIdStart]" />
-                    <inputColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[V_PortIdEnd]"
-                      cachedDataType="i4"
-                      cachedName="V_PortIdEnd"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_PortIdEnd]"
-                      lineageId="Package\Load Shipment Fact\Lookup Voyage.Outputs[Lookup Match Output].Columns[V_PortIdEnd]" />
                     <inputColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].Columns[VP_PortIdCurrent]"
                       cachedDataType="i4"
@@ -4780,14 +4615,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       dataType="i4"
                       name="ConsignorId" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
-                      dataType="i4"
-                      name="PortIdFrom" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
-                      dataType="i4"
-                      name="PortIdTo" />
-                    <externalMetadataColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       dataType="i4"
                       name="Distance" />
@@ -4796,11 +4623,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       dataType="i4"
                       name="NumberContainers" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
-                      dataType="wstr"
-                      length="50"
-                      name="ContainerNr" />
-                    <externalMetadataColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item]"
                       dataType="i4"
                       name="Item" />
@@ -4808,10 +4630,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainertypeId]"
                       dataType="i4"
                       name="ContainertypeId" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[VPS_PortIdStart]"
-                      dataType="i4"
-                      name="VPS_PortIdStart" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[VP_PortIdCurrent]"
                       dataType="i4"
@@ -4829,10 +4647,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       dataType="dbDate"
                       name="Vp_LegDateArrival" />
                     <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_PortIdEnd]"
-                      dataType="i4"
-                      name="V_PortIdEnd" />
-                    <externalMetadataColumn
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_Traject_Distance]"
                       dataType="i4"
                       name="Vp_Traject_Distance" />
@@ -4840,10 +4654,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_ShipId]"
                       dataType="i4"
                       name="VS_ShipId" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_DateDepartVoyage]"
-                      dataType="dbDate"
-                      name="V_DateDepartVoyage" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5826,28 +5636,6 @@ where [refTable].[VV_VoyageId] = ?</property>
           Size="113,42"
           Id="Package\Load Ship Dimension\Lookup"
           TopLeft="229,362" />
-        <EdgeLayout
-          Id="Package\Load Ship Dimension.Paths[OLE DB Source Output]"
-          TopLeft="285.5,286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,76"
-              Start="0,0"
-              End="0,68.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="155,42"
           Id="Package\Load Ship Dimension\Ship Destination"
@@ -5876,11 +5664,69 @@ where [refTable].[VV_VoyageId] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Ship Dimension.Paths[OLE DB Source Output]"
+          TopLeft="285.5,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Load Ship Dimension\Ship Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Ship Dimension\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[RAW_MRV]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Ship Dimension\Ship Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6154,42 +6000,6 @@ where [refTable].[VV_VoyageId] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[RAW_MRV]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\Ship Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
