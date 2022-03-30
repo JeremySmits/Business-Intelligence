@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="RAWToPSA"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{6D425CF0-D808-4887-B044-750A5960EB40}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{811E6DA2-8AD7-4522-8175-0A68667A9676}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -705,6 +705,23 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F3EEE332-8FBB-42FC-ADE8-309DF557E939}"
           SQLTask:SqlStatementSource="DELETE FROM dbo.TPS_Shipment_Detail;&#xA;DELETE FROM dbo.TPS_Shipment;&#xA;DELETE FROM dbo.TPS_Voyage_Port;&#xA;DELETE FROM dbo.TPS_Voyage;&#xA;DELETE FROM dbo.TPS_Item;&#xA;DELETE FROM dbo.TPS_Port;&#xA;DELETE FROM dbo.TPS_Ship;&#xA;DELETE FROM dbo.RAW_MRV;&#xA;DELETE FROM dbo.RAW_CONTAINER;&#xA;DELETE FROM dbo.RAW_CONSIGNOR;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AB876D8B-9D28-4E37-9E86-1B21A6DC97E6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F3EEE332-8FBB-42FC-ADE8-309DF557E939}"
+          SQLTask:SqlStatementSource="UPDATE TPS_Shipment_Detail&#xA;SET ContainerCount = CAST(RIGHT(ContainerCount,CHARINDEX('-', (REVERSE(ContainerCount))) - 1) AS Int) - CAST(Left(ContainerCount, CHARINDEX('-', ContainerCount) - 1) AS int) + 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1619,8 +1636,8 @@ where [refTable].[Sh_Shipname] = ?</property>
               <connections>
                 <connection
                   refId="Package\Load MRV\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KC36UDI.Kramse_RDBMS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KC36UDI.Kramse_RDBMS]"
+                  connectionManagerID="{F3EEE332-8FBB-42FC-ADE8-309DF557E939}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_RDBMS]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -5654,13 +5671,6 @@ where [refTable].[Sh_Shipname] = ?</property>
                       externalMetadataColumnId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
                       lineageId="Package\Load TPS ShipmentDetail\Shitment Detail Source.Outputs[OLE DB Source Output].Columns[ShipmentId]" />
                     <inputColumn
-                      refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="ContainerNr"
-                      externalMetadataColumnId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
-                      lineageId="Package\Load TPS ShipmentDetail\Shitment Detail Source.Outputs[OLE DB Source Output].Columns[ContainerNr]" />
-                    <inputColumn
                       refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].Columns[Item]"
                       cachedDataType="i4"
                       cachedName="Item"
@@ -5672,6 +5682,13 @@ where [refTable].[Sh_Shipname] = ?</property>
                       cachedName="ContainertypeId"
                       externalMetadataColumnId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainertypeId]"
                       lineageId="Package\Load TPS ShipmentDetail\Shitment Detail Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]" />
+                    <inputColumn
+                      refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      externalMetadataColumnId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
+                      lineageId="Package\Load TPS ShipmentDetail\Shitment Detail Source.Outputs[OLE DB Source Output].Columns[ContainerNr]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5680,11 +5697,6 @@ where [refTable].[Sh_Shipname] = ?</property>
                       dataType="i4"
                       name="ShipmentId" />
                     <externalMetadataColumn
-                      refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
-                      dataType="wstr"
-                      length="50"
-                      name="ContainerNr" />
-                    <externalMetadataColumn
                       refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item]"
                       dataType="i4"
                       name="Item" />
@@ -5692,6 +5704,11 @@ where [refTable].[Sh_Shipname] = ?</property>
                       refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainertypeId]"
                       dataType="i4"
                       name="ContainertypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Load TPS ShipmentDetail\Shipment detail Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
+                      dataType="wstr"
+                      length="255"
+                      name="ContainerCount" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6265,6 +6282,180 @@ where [refTable].[Sh_Shipname] = ?</property>
           version="1">
           <components>
             <component
+              refId="Package\Load TPS Voyage Port\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[TPS_Voyage_Port]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[TPS_Voyage_Port]) [refTable]
+where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="VV_VoyageId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VP_PortIdCurrent" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_PortIdNext" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_LegDateDepart" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_LegDateArrival" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_Traject_Distance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_PortOrder" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load TPS Voyage Port\Voyage port Source.Outputs[OLE DB Source Output].Columns[VV_VoyageId]};#{Package\Load TPS Voyage Port\Voyage port Source.Outputs[OLE DB Source Output].Columns[Vp_PortIdNext]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load TPS Voyage Port\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{C3BBBB95-8D9C-4F1C-AB26-4830359544AF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_Raw]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input].Columns[VV_VoyageId]"
+                      cachedDataType="i4"
+                      cachedName="VV_VoyageId"
+                      lineageId="Package\Load TPS Voyage Port\Voyage port Source.Outputs[OLE DB Source Output].Columns[VV_VoyageId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VV_VoyageId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input].Columns[Vp_PortIdNext]"
+                      cachedDataType="i4"
+                      cachedName="Vp_PortIdNext"
+                      lineageId="Package\Load TPS Voyage Port\Voyage port Source.Outputs[OLE DB Source Output].Columns[Vp_PortIdNext]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VP_PortIdCurrent</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Match Output].Columns[Vp_LegDateDeparture]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Match Output].Columns[Vp_LegDateDeparture]"
+                      name="Vp_LegDateDeparture"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Vp_LegDateDepart</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load TPS Voyage Port\Voyage port Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -6379,6 +6570,12 @@ where [refTable].[Sh_Shipname] = ?</property>
                       cachedName="Vp_PortOrder"
                       externalMetadataColumnId="Package\Load TPS Voyage Port\Voyage port Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_PortOrder]"
                       lineageId="Package\Load TPS Voyage Port\Voyage port Source.Outputs[OLE DB Source Output].Columns[Vp_PortOrder]" />
+                    <inputColumn
+                      refId="Package\Load TPS Voyage Port\Voyage port Destination.Inputs[OLE DB Destination Input].Columns[Vp_LegDateDeparture]"
+                      cachedDataType="dbDate"
+                      cachedName="Vp_LegDateDeparture"
+                      externalMetadataColumnId="Package\Load TPS Voyage Port\Voyage port Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_LegDateDeparture]"
+                      lineageId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Match Output].Columns[Vp_LegDateDeparture]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6411,6 +6608,10 @@ where [refTable].[Sh_Shipname] = ?</property>
                       dataType="wstr"
                       length="50"
                       name="Vp_PortOrder" />
+                    <externalMetadataColumn
+                      refId="Package\Load TPS Voyage Port\Voyage port Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_LegDateDeparture]"
+                      dataType="dbDate"
+                      name="Vp_LegDateDeparture" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6659,8 +6860,13 @@ where [refTable].[Sh_Shipname] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Load TPS Voyage Port.Paths[OLE DB Source Output]"
+              refId="Package\Load TPS Voyage Port.Paths[Lookup Match Output]"
               endId="Package\Load TPS Voyage Port\Voyage port Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load TPS Voyage Port\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load TPS Voyage Port.Paths[OLE DB Source Output]"
+              endId="Package\Load TPS Voyage Port\Lookup.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Load TPS Voyage Port\Voyage port Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -6696,8 +6902,8 @@ where [refTable].[Sh_Shipname] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{b9466c55-9315-4081-8f43-3db8c4409e58}"
-      DTS:From="Package\Delete all from database"
+      DTS:DTSID="{E0BDACA6-EB56-4AEB-B5A8-A01C4A9F486D}"
+      DTS:From="Package\Load TPS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Load MRV" />
@@ -6720,7 +6926,7 @@ where [refTable].[Sh_Shipname] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{B3BB0AE4-E07B-4959-A236-FB070D894BB0}"
+      DTS:DTSID="{D658B4C5-278B-4755-BFCC-E5E5DAFF9A35}"
       DTS:From="Package\Load TPS Voyage Port"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
@@ -6733,6 +6939,14 @@ where [refTable].[Sh_Shipname] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Load TPS ShipmentDetail" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{D107C5D0-4CF9-465D-95C2-15E4645DF441}"
+      DTS:From="Package\Load TPS ShipmentDetail"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Execute SQL Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -6761,7 +6975,7 @@ where [refTable].[Sh_Shipname] = ?</property>
         <NodeLayout
           Size="126,42"
           Id="Package\Load MRV"
-          TopLeft="1503,321" />
+          TopLeft="998,425" />
         <NodeLayout
           Size="123,42"
           Id="Package\Load TPS"
@@ -6781,7 +6995,7 @@ where [refTable].[Sh_Shipname] = ?</property>
         <NodeLayout
           Size="183,42"
           Id="Package\Load TPS Voyage Port"
-          TopLeft="754.25,502.75" />
+          TopLeft="748.25,469.75" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="1206.2,221">
@@ -6886,30 +7100,30 @@ where [refTable].[Sh_Shipname] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="1317.8,221">
+          TopLeft="857.666666666667,367">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="248.2,100"
+              EndConnector="203.333333333333,58"
               Start="0,0"
-              End="248.2,92.5">
+              End="203.333333333333,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.8118668596238" />
+                    End="0,19.6468699839487" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.8118668596238"
-                    Point2="0,29.8118668596238"
-                    Point3="4,29.8118668596238" />
+                    Point1="0,19.6468699839487"
+                    Point2="0,23.6468699839487"
+                    Point3="4,23.6468699839487" />
                   <mssgle:LineSegment
-                    End="244.2,29.8118668596238" />
+                    End="199.333333333333,23.6468699839487" />
                   <mssgle:CubicBezierSegment
-                    Point1="244.2,29.8118668596238"
-                    Point2="248.2,29.8118668596238"
-                    Point3="248.2,33.8118668596238" />
+                    Point1="199.333333333333,23.6468699839487"
+                    Point2="203.333333333333,23.6468699839487"
+                    Point3="203.333333333333,27.6468699839487" />
                   <mssgle:LineSegment
-                    End="248.2,92.5" />
+                    End="203.333333333333,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6942,40 +7156,18 @@ where [refTable].[Sh_Shipname] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="845.875,444.5">
+          TopLeft="842.875,444.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.25"
+              EndConnector="0,25.25"
               Start="0,0"
-              End="0,50.75">
+              End="0,17.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.75" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="847.75,544.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.5"
-              Start="0,0"
-              End="0,17">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17" />
+                    End="0,17.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6998,6 +7190,66 @@ where [refTable].[Sh_Shipname] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="769,717" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="839.75,511.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,57.5"
+              Start="0,0"
+              End="10,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.75"
+                    Point2="0,28.75"
+                    Point3="4,28.75" />
+                  <mssgle:LineSegment
+                    End="6,28.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,28.75"
+                    Point2="10,28.75"
+                    Point3="10,32.75" />
+                  <mssgle:LineSegment
+                    End="10,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="850.625,684.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.25"
+              Start="0,0"
+              End="0,24.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7213,7 +7465,9 @@ where [refTable].[Sh_Shipname] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7255,6 +7509,55 @@ where [refTable].[Sh_Shipname] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load MRV\MRV Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load MRV\MRV Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load MRV\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[TPS_Ship]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load TPS">
     <LayoutInfo>
@@ -7505,7 +7808,7 @@ where [refTable].[Sh_Shipname] = ?</property>
     design-time-name="Package\Load TPS Shipment">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="153,42"
           Id="Package\Load TPS Shipment\Spiment Source"
@@ -7545,9 +7848,7 @@ where [refTable].[Sh_Shipname] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7557,7 +7858,7 @@ where [refTable].[Sh_Shipname] = ?</property>
     design-time-name="Package\Load TPS ShipmentDetail">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="187,42"
           Id="Package\Load TPS ShipmentDetail\Shitment Detail Source"
@@ -7565,46 +7866,45 @@ where [refTable].[Sh_Shipname] = ?</property>
         <NodeLayout
           Size="208,42"
           Id="Package\Load TPS ShipmentDetail\Shipment detail Destination"
-          TopLeft="244,209" />
+          TopLeft="242,213" />
         <EdgeLayout
           Id="Package\Load TPS ShipmentDetail.Paths[OLE DB Source Output]"
-          TopLeft="338.5,104">
+          TopLeft="342.25,104">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.5,105"
+              EndConnector="0,109"
               Start="0,0"
-              End="9.5,97.5">
+              End="0,101.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,48.5"
-                    Point2="0,52.5"
-                    Point3="4,52.5" />
-                  <mssgle:LineSegment
-                    End="5.5,52.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.5,52.5"
-                    Point2="9.5,52.5"
-                    Point3="9.5,56.5" />
-                  <mssgle:LineSegment
-                    End="9.5,97.5" />
+                    End="0,101.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load TPS ShipmentDetail\Shipment detail Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load TPS Voyage">
     <LayoutInfo>
@@ -7661,7 +7961,7 @@ where [refTable].[Sh_Shipname] = ?</property>
     design-time-name="Package\Load TPS Voyage Port">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Load TPS Voyage Port\Voyage port Source"
@@ -7669,28 +7969,78 @@ where [refTable].[Sh_Shipname] = ?</property>
         <NodeLayout
           Size="192,42"
           Id="Package\Load TPS Voyage Port\Voyage port Destination"
-          TopLeft="60,215" />
+          TopLeft="76,317" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Load TPS Voyage Port\Lookup"
+          TopLeft="181,181" />
         <EdgeLayout
           Id="Package\Load TPS Voyage Port.Paths[OLE DB Source Output]"
-          TopLeft="155.75,102">
+          TopLeft="155.5,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,113"
+              EndConnector="82,79"
               Start="0,0"
-              End="0,105.5">
+              End="82,71.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,105.5" />
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="4,39.5" />
+                  <mssgle:LineSegment
+                    End="78,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78,39.5"
+                    Point2="82,39.5"
+                    Point3="82,43.5" />
+                  <mssgle:LineSegment
+                    End="82,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TPS Voyage Port.Paths[Lookup Match Output]"
+          TopLeft="237.5,223">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-65.5,94"
+              Start="0,0"
+              End="-65.5,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="-4,47" />
+                  <mssgle:LineSegment
+                    End="-61.5,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-61.5,47"
+                    Point2="-65.5,47"
+                    Point3="-65.5,51" />
+                  <mssgle:LineSegment
+                    End="-65.5,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-80.94138671875,52,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7698,7 +8048,7 @@ where [refTable].[Sh_Shipname] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load MRV\MRV Source">
+    design-time-name="Package\Load TPS Voyage Port\Voyage port Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7711,20 +8061,7 @@ where [refTable].[Sh_Shipname] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load MRV\MRV Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load MRV\Lookup">
+    design-time-name="Package\Load TPS Voyage Port\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -7734,7 +8071,7 @@ where [refTable].[Sh_Shipname] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[TPS_Ship]</Value>
+          type="q3:string">[dbo].[TPS_Voyage_Port]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
