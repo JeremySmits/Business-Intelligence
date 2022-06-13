@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="FilesToRAW"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{7736468C-5C7C-4D6F-997A-6C2DEA3085A9}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{FC1FE8E3-8798-4431-A640-B7D9EC23C81E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -412,7 +412,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Length]"
-                      dataType="decimal"
+                      dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Container\Load Container.Outputs[Flat File Source Output].ExternalColumns[Length]"
@@ -432,7 +432,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Cubes]"
-                      dataType="decimal"
+                      dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Container\Load Container.Outputs[Flat File Source Output].ExternalColumns[Cubes]"
@@ -452,7 +452,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[EuroPricePerKm]"
-                      dataType="decimal"
+                      dataType="r4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Container\Load Container.Outputs[Flat File Source Output].ExternalColumns[EuroPricePerKm]"
@@ -640,13 +640,13 @@
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[PowerFlag]" />
                     <inputColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Length]"
-                      cachedDataType="decimal"
+                      cachedDataType="r4"
                       cachedName="Length"
                       externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Length]" />
                     <inputColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cubes]"
-                      cachedDataType="decimal"
+                      cachedDataType="r4"
                       cachedName="Cubes"
                       externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[Cubes]" />
@@ -659,7 +659,7 @@
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[RefrigerationFlag]" />
                     <inputColumn
                       refId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EuroPricePerKm]"
-                      cachedDataType="decimal"
+                      cachedDataType="r4"
                       cachedName="EuroPricePerKm"
                       externalMetadataColumnId="Package\Load Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
                       lineageId="Package\Load Container\Load Container.Outputs[Flat File Source Output].Columns[EuroPricePerKm]" />
@@ -5911,7 +5911,7 @@
     design-time-name="Package\Load Container">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171,42"
           Id="Package\Load Container\OLE DB Destination"
@@ -5951,9 +5951,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6042,7 +6040,7 @@
     design-time-name="Package\Load MRV">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Load MRV\OLE DB Destination"
@@ -6082,7 +6080,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

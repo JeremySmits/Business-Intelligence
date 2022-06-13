@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="PSAToODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{A1AB1B38-B837-4056-A21B-C563B9CF47C8}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{D1D3146F-D9DD-4161-8511-7FFF0E3E5A86}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5980,7 +5980,7 @@ AND [refTable].[EndDate] IS NULL;</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VS_Shipid" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Shipname" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_MaxNumberContain" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_SpeedInKnots" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_SpeedInKm_H" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Country" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Yearcost" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ship type" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Reporting Period" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Technical efficiency" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Port of Registry" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier NAB" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Address" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier City" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Accreditation number" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Country" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total fuel consumption (m tonnes)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual Total time spent at sea (hours)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per distance (kg / n mile)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per transport work (mass) (g / m" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total time spent at sea (hours)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VS_Shipid" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Shipname" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_MaxNumberContain" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_SpeedInKm_H" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Country" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Yearcost" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Reporting Period" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total fuel consumption (m tonnes)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual Total time spent at sea (hours)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per distance (kg / n mile)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -6745,33 +6745,33 @@ AND [refTable].[EndDate] IS NULL;</property>
         <NodeLayout
           Size="172,42"
           Id="Package\Load Shipment Fact"
-          TopLeft="483,406.25" />
+          TopLeft="483,407.25" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="200.5,261.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="313.833333333333,145"
+              EndConnector="313.833333333333,146"
               Start="0,0"
-              End="313.833333333333,137.5">
+              End="313.833333333333,138.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,102.278409090909" />
+                    End="0,103.011363636364" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,102.278409090909"
-                    Point2="0,106.278409090909"
-                    Point3="4,106.278409090909" />
+                    Point1="0,103.011363636364"
+                    Point2="0,107.011363636364"
+                    Point3="4,107.011363636364" />
                   <mssgle:LineSegment
-                    End="309.833333333333,106.278409090909" />
+                    End="309.833333333333,107.011363636364" />
                   <mssgle:CubicBezierSegment
-                    Point1="309.833333333333,106.278409090909"
-                    Point2="313.833333333333,106.278409090909"
-                    Point3="313.833333333333,110.278409090909" />
+                    Point1="309.833333333333,107.011363636364"
+                    Point2="313.833333333333,107.011363636364"
+                    Point3="313.833333333333,111.011363636364" />
                   <mssgle:LineSegment
-                    End="313.833333333333,137.5" />
+                    End="313.833333333333,138.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6786,26 +6786,26 @@ AND [refTable].[EndDate] IS NULL;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="112.666666666667,143"
+              EndConnector="112.666666666667,144"
               Start="0,0"
-              End="112.666666666667,135.5">
+              End="112.666666666667,136.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,81.0092165898618" />
+                    End="0,81.6036866359447" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,81.0092165898618"
-                    Point2="0,85.0092165898618"
-                    Point3="4,85.0092165898618" />
+                    Point1="0,81.6036866359447"
+                    Point2="0,85.6036866359447"
+                    Point3="4,85.6036866359447" />
                   <mssgle:LineSegment
-                    End="108.666666666667,85.0092165898618" />
+                    End="108.666666666667,85.6036866359447" />
                   <mssgle:CubicBezierSegment
-                    Point1="108.666666666667,85.0092165898618"
-                    Point2="112.666666666667,85.0092165898618"
-                    Point3="112.666666666667,89.0092165898618" />
+                    Point1="108.666666666667,85.6036866359447"
+                    Point2="112.666666666667,85.6036866359447"
+                    Point3="112.666666666667,89.6036866359447" />
                   <mssgle:LineSegment
-                    End="112.666666666667,135.5" />
+                    End="112.666666666667,136.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6820,26 +6820,26 @@ AND [refTable].[EndDate] IS NULL;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-77,144"
+              EndConnector="-77,145"
               Start="0,0"
-              End="-77,136.5">
+              End="-77,137.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,68" />
+                    End="0,68.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,68"
-                    Point2="0,72"
-                    Point3="-4,72" />
+                    Point1="0,68.5"
+                    Point2="0,72.5"
+                    Point3="-4,72.5" />
                   <mssgle:LineSegment
-                    End="-73,72" />
+                    End="-73,72.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-73,72"
-                    Point2="-77,72"
-                    Point3="-77,76" />
+                    Point1="-73,72.5"
+                    Point2="-77,72.5"
+                    Point3="-77,76.5" />
                   <mssgle:LineSegment
-                    End="-77,136.5" />
+                    End="-77,137.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6854,26 +6854,26 @@ AND [refTable].[EndDate] IS NULL;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-302.666666666667,146"
+              EndConnector="-302.666666666667,147"
               Start="0,0"
-              End="-302.666666666667,138.5">
+              End="-302.666666666667,139.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,82.7926267281106" />
+                    End="0,83.3870967741936" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,82.7926267281106"
-                    Point2="0,86.7926267281106"
-                    Point3="-4,86.7926267281106" />
+                    Point1="0,83.3870967741936"
+                    Point2="0,87.3870967741936"
+                    Point3="-4,87.3870967741936" />
                   <mssgle:LineSegment
-                    End="-298.666666666667,86.7926267281106" />
+                    End="-298.666666666667,87.3870967741936" />
                   <mssgle:CubicBezierSegment
-                    Point1="-298.666666666667,86.7926267281106"
-                    Point2="-302.666666666667,86.7926267281106"
-                    Point3="-302.666666666667,90.7926267281106" />
+                    Point1="-298.666666666667,87.3870967741936"
+                    Point2="-302.666666666667,87.3870967741936"
+                    Point3="-302.666666666667,91.3870967741936" />
                   <mssgle:LineSegment
-                    End="-302.666666666667,138.5" />
+                    End="-302.666666666667,139.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6888,26 +6888,26 @@ AND [refTable].[EndDate] IS NULL;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-493.333333333333,148"
+              EndConnector="-493.333333333333,149"
               Start="0,0"
-              End="-493.333333333333,140.5">
+              End="-493.333333333333,141.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,104.477272727273" />
+                    End="0,105.210227272727" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,104.477272727273"
-                    Point2="0,108.477272727273"
-                    Point3="-4,108.477272727273" />
+                    Point1="0,105.210227272727"
+                    Point2="0,109.210227272727"
+                    Point3="-4,109.210227272727" />
                   <mssgle:LineSegment
-                    End="-489.333333333333,108.477272727273" />
+                    End="-489.333333333333,109.210227272727" />
                   <mssgle:CubicBezierSegment
-                    Point1="-489.333333333333,108.477272727273"
-                    Point2="-493.333333333333,108.477272727273"
-                    Point3="-493.333333333333,112.477272727273" />
+                    Point1="-489.333333333333,109.210227272727"
+                    Point2="-493.333333333333,109.210227272727"
+                    Point3="-493.333333333333,113.210227272727" />
                   <mssgle:LineSegment
-                    End="-493.333333333333,140.5" />
+                    End="-493.333333333333,141.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8339,17 +8339,53 @@ AND [refTable].[EndDate] IS NULL;</property>
           Id="Package\Load Shipment Fact\Lookup CosignorRowId"
           TopLeft="367,290" />
         <NodeLayout
-          Size="167,42"
-          Id="Package\Load Shipment Fact\Lookup ShipRowId"
-          TopLeft="361,536" />
+          Size="159,42"
+          Id="Package\Load Shipment Fact\Shipment Source"
+          TopLeft="367,147" />
         <NodeLayout
           Size="192,42"
           Id="Package\Load Shipment Fact\Lookup ContainerRowId"
           TopLeft="366,412" />
         <NodeLayout
-          Size="159,42"
-          Id="Package\Load Shipment Fact\Shipment Source"
-          TopLeft="367,147" />
+          Size="167,42"
+          Id="Package\Load Shipment Fact\Lookup ShipRowId"
+          TopLeft="361,536" />
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
+          TopLeft="462,454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,82"
+              Start="0,0"
+              End="-17.5,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="-4,41" />
+                  <mssgle:LineSegment
+                    End="-13.5,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,41"
+                    Point2="-17.5,41"
+                    Point3="-17.5,45" />
+                  <mssgle:LineSegment
+                    End="-17.5,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-56.94138671875,46,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output]"
           TopLeft="461.25,332">
@@ -8408,79 +8444,43 @@ AND [refTable].[EndDate] IS NULL;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
-          TopLeft="462,454">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17.5,82"
-              Start="0,0"
-              End="-17.5,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37"
-                    Point2="0,41"
-                    Point3="-4,41" />
-                  <mssgle:LineSegment
-                    End="-13.5,41" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.5,41"
-                    Point2="-17.5,41"
-                    Point3="-17.5,45" />
-                  <mssgle:LineSegment
-                    End="-17.5,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-56.94138671875,46,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="171,42"
           Id="Package\Load Shipment Fact\OLE DB Destination"
-          TopLeft="310,649" />
+          TopLeft="712,503" />
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-          TopLeft="444.5,578">
+          TopLeft="528,557">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-49,71"
+              EndConnector="184,-33"
               Start="0,0"
-              End="-49,63.5">
+              End="176.5,-33">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="88,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5"
-                    Point2="0,35.5"
-                    Point3="-4,35.5" />
+                    Point1="88,0"
+                    Point2="92,0"
+                    Point3="92,-4" />
                   <mssgle:LineSegment
-                    End="-45,35.5" />
+                    End="92,-29" />
                   <mssgle:CubicBezierSegment
-                    Point1="-45,35.5"
-                    Point2="-49,35.5"
-                    Point3="-49,39.5" />
+                    Point1="92,-29"
+                    Point2="92,-33"
+                    Point3="96,-33" />
                   <mssgle:LineSegment
-                    End="-49,63.5" />
+                    End="176.5,-33" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-81.5600390625,40.5,114.120078125,16"
+              BoundingBox="43.80861328125,1,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="RDBMSToPSA"
   DTS:PackageType="5"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{EE150FD6-C1CC-41FD-AB01-0561D69E0949}">
+  DTS:VersionBuild="115"
+  DTS:VersionGUID="{371A97FB-AB36-4AA5-9D7A-F367013D1DFE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2328,166 +2328,6 @@
           version="1">
           <components>
             <component
-              refId="Package\Load Ship Dimension\Lookup"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CommonMistakes]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CommonMistakes]) [refTable]
-where [refTable].[RealName] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="WrongName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RealName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_Shipname]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load Ship Dimension\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="{CF298F09-572C-409C-A9AC-F5A5DAFD2E92}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Kramse_PSA]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load Ship Dimension\Lookup.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Lookup.Inputs[Lookup Input].Columns[Sh_Shipname]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Sh_Shipname"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_Shipname]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">RealName</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Load Ship Dimension\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[WrongName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[WrongName]"
-                      name="WrongName"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">WrongName</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load Ship Dimension\Lookup.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Load Ship Dimension\Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Load Ship Dimension\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Load Ship Dimension\Lookup MRV"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -3534,1259 +3374,6 @@ where [refTable].[Name] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Ship Dimension\Lookup MRV 1"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup MRV 1"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[RAW_MRV]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[RAW_MRV]) [refTable]
-where [refTable].[Name] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IMO Number" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ship type" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Reporting Period" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Technical efficiency" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Port of Registry" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Home Port" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Ice Class" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DoC issue date" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DoC expiry date" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Number" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier NAB" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Address" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier City" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Accreditation number" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Verifier Country" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="A" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="B" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="C" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="D" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total fuel consumption (m tonnes)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumptions assigned to On laden (m tonnes)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total CO₂ emissions (m tonnes)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions from all voyages between ports under a MS jurisdic" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions from all voyages which departed from ports under a" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions from all voyages to ports under a MS jurisdiction " dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions which occurred within ports under a MS jurisdictio" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions assigned to Passenger transport (m tonnes)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions assigned to Freight transport (m tonnes)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions assigned to On laden (m tonnes)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual Total time spent at sea (hours)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per distance (kg / n mile)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per transport work (mass) (g / m" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per transport work (volume) (g /" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per transport work (dwt) (g / dw" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per transport work (pax) (g / pa" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average Fuel consumption per transport work (freight) (g " dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Annual average CO₂ emissions per transport work (freight) (g CO₂" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Through ice (n miles)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total time spent at sea (hours)" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Total time spent at sea through ice (hours)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="F48" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumption per distance on laden voyages (kg / n mile)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumption per transport work (mass) on laden voyages (g /" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumption per transport work (volume) on laden voyages (g" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumption per transport work (dwt) on laden voyages (g / " dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumption per transport work (pax) on laden voyages (g / " dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fuel consumption per transport work (freight) on laden voyages (" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions per transport work (volume) on laden voyages (g CO" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CO₂ emissions per transport work (freight) on laden voyages (g C" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Additional information to facilitate the understanding of the re" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Average density of the cargo transported (m tonnes / m³)" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[WrongName]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load Ship Dimension\Lookup MRV 1.Connections[OleDbConnection]"
-                  connectionManagerID="{F3EEE332-8FBB-42FC-ADE8-309DF557E939}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Kramse_RDBMS]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load Ship Dimension\Lookup MRV 1.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Inputs[Lookup Input].Columns[WrongName]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="WrongName"
-                      lineageId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output].Columns[WrongName]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Name</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Load Ship Dimension\Lookup MRV 1.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[IMO Number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[IMO Number]"
-                      name="IMO Number"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">IMO Number</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Ship type]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Ship type]"
-                      name="Ship type"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Ship type</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Reporting Period]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Reporting Period]"
-                      name="Reporting Period"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Reporting Period</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Technical efficiency]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Technical efficiency]"
-                      name="Technical efficiency"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Technical efficiency</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Port of Registry]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Port of Registry]"
-                      name="Port of Registry"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Port of Registry</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Home Port]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Home Port]"
-                      name="Home Port"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Home Port</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Ice Class]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Ice Class]"
-                      name="Ice Class"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Ice Class</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[DoC issue date]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[DoC issue date]"
-                      name="DoC issue date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">DoC issue date</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[DoC expiry date]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[DoC expiry date]"
-                      name="DoC expiry date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">DoC expiry date</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Number]"
-                      name="Verifier Number"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier Number</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Name]"
-                      name="Verifier Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier Name</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier NAB]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier NAB]"
-                      name="Verifier NAB"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier NAB</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Address]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Address]"
-                      name="Verifier Address"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier Address</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier City]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier City]"
-                      name="Verifier City"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier City</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Accreditation number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Accreditation number]"
-                      name="Verifier Accreditation number"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier Accreditation number</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Verifier Country]"
-                      name="Verifier Country"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Verifier Country</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[A]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[A]"
-                      name="A"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">A</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[B]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[B]"
-                      name="B"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">B</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[C]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[C]"
-                      name="C"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">C</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[D]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[D]"
-                      name="D"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">D</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total fuel consumption (m tonnes)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total fuel consumption (m tonnes)]"
-                      name="Total fuel consumption (m tonnes)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Total fuel consumption (m tonnes)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      name="Fuel consumptions assigned to On laden (m tonnes)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumptions assigned to On laden (m tonnes)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total CO₂ emissions (m tonnes)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total CO₂ emissions (m tonnes)]"
-                      name="Total CO₂ emissions (m tonnes)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Total CO₂ emissions (m tonnes)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      name="CO₂ emissions from all voyages between ports under a MS jurisdic"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions from all voyages between ports under a MS jurisdic</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      name="CO₂ emissions from all voyages which departed from ports under a"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions from all voyages which departed from ports under a</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction]"
-                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions from all voyages to ports under a MS jurisdiction </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      name="CO₂ emissions which occurred within ports under a MS jurisdictio"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions which occurred within ports under a MS jurisdictio</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      name="CO₂ emissions assigned to Passenger transport (m tonnes)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions assigned to Passenger transport (m tonnes)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      name="CO₂ emissions assigned to Freight transport (m tonnes)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions assigned to Freight transport (m tonnes)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      name="CO₂ emissions assigned to On laden (m tonnes)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions assigned to On laden (m tonnes)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual Total time spent at sea (hours)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual Total time spent at sea (hours)]"
-                      name="Annual Total time spent at sea (hours)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual Total time spent at sea (hours)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      name="Annual average Fuel consumption per distance (kg / n mile)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average Fuel consumption per distance (kg / n mile)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      name="Annual average Fuel consumption per transport work (mass) (g / m"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average Fuel consumption per transport work (mass) (g / m</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      name="Annual average Fuel consumption per transport work (volume) (g /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average Fuel consumption per transport work (volume) (g /</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      name="Annual average Fuel consumption per transport work (dwt) (g / dw"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average Fuel consumption per transport work (dwt) (g / dw</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      name="Annual average Fuel consumption per transport work (pax) (g / pa"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average Fuel consumption per transport work (pax) (g / pa</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (freight) (g]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per transport work (freight) (g]"
-                      name="Annual average Fuel consumption per transport work (freight) (g"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average Fuel consumption per transport work (freight) (g </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average CO₂ emissions per distance (kg CO₂ / n mile)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ /]"
-                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average CO₂ emissions per transport work (mass) (g CO₂ / </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂]"
-                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average CO₂ emissions per transport work (volume) (g CO₂ </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average CO₂ emissions per transport work (pax) (g CO₂ / p</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Annual average CO₂ emissions per transport work (freight) (g CO₂</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Through ice (n miles)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Through ice (n miles)]"
-                      name="Through ice (n miles)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Through ice (n miles)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total time spent at sea (hours)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total time spent at sea (hours)]"
-                      name="Total time spent at sea (hours)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Total time spent at sea (hours)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total time spent at sea through ice (hours)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total time spent at sea through ice (hours)]"
-                      name="Total time spent at sea through ice (hours)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Total time spent at sea through ice (hours)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[F48]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[F48]"
-                      name="F48"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">F48</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      name="Fuel consumption per distance on laden voyages (kg / n mile)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumption per distance on laden voyages (kg / n mile)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      name="Fuel consumption per transport work (mass) on laden voyages (g /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumption per transport work (mass) on laden voyages (g /</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      name="Fuel consumption per transport work (volume) on laden voyages (g"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumption per transport work (volume) on laden voyages (g</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g /]"
-                      name="Fuel consumption per transport work (dwt) on laden voyages (g /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumption per transport work (dwt) on laden voyages (g / </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g /]"
-                      name="Fuel consumption per transport work (pax) on laden voyages (g /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumption per transport work (pax) on laden voyages (g / </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      name="Fuel consumption per transport work (freight) on laden voyages ("
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Fuel consumption per transport work (freight) on laden voyages (</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂]"
-                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions per transport work (mass) on laden voyages (g CO₂ </property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions per transport work (volume) on laden voyages (g CO</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      name="CO₂ emissions per transport work (freight) on laden voyages (g C"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CO₂ emissions per transport work (freight) on laden voyages (g C</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Additional information to facilitate the understanding of the re]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Additional information to facilitate the understanding of the re]"
-                      name="Additional information to facilitate the understanding of the re"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Additional information to facilitate the understanding of the re</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="255"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      name="Average density of the cargo transported (m tonnes / m³)"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Average density of the cargo transported (m tonnes / m³)</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Load Ship Dimension\Lookup MRV 1.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Load Ship Dimension\Lookup MRV 1.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load Ship Dimension\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Dim_Ship]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load Ship Dimension\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{CF298F09-572C-409C-A9AC-F5A5DAFD2E92}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Kramse_PSA]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VS_Shipid]"
-                      cachedDataType="i4"
-                      cachedName="VS_Shipid"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_Shipid]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[VS_Shipid]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Shipname]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Sh_Shipname"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Shipname]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_Shipname]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_MaxNumberContain]"
-                      cachedDataType="i4"
-                      cachedName="Sh_MaxNumberContain"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxNumberContain]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_MaxNumberContain]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKm_H]"
-                      cachedDataType="i4"
-                      cachedName="Sh_SpeedInKm_H"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Country]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Sh_Country"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Country]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_Country]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Yearcost]"
-                      cachedDataType="cy"
-                      cachedName="Sh_Yearcost"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
-                      lineageId="Package\Load Ship Dimension\Ship Source.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Reporting Period]"
-                      cachedDataType="r8"
-                      cachedName="Reporting Period"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Reporting Period]"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Reporting Period]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total fuel consumption (m tonnes)]"
-                      cachedDataType="r8"
-                      cachedName="Total fuel consumption (m tonnes)"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Total fuel consumption (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Annual Total time spent at sea (hours)]"
-                      cachedDataType="r8"
-                      cachedName="Annual Total time spent at sea (hours)"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual Total time spent at sea (hours)]"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual Total time spent at sea (hours)]" />
-                    <inputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      cachedDataType="r8"
-                      cachedName="Annual average Fuel consumption per distance (kg / n mile)"
-                      externalMetadataColumnId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      lineageId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_Shipid]"
-                      dataType="i4"
-                      name="VS_Shipid" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Shipname]"
-                      dataType="wstr"
-                      length="255"
-                      name="Sh_Shipname" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxNumberContain]"
-                      dataType="i4"
-                      name="Sh_MaxNumberContain" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
-                      dataType="i4"
-                      name="Sh_SpeedInKm_H" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Country]"
-                      dataType="wstr"
-                      length="50"
-                      name="Sh_Country" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
-                      dataType="cy"
-                      name="Sh_Yearcost" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Reporting Period]"
-                      dataType="r8"
-                      name="Reporting Period" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
-                      dataType="r8"
-                      name="Total fuel consumption (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual Total time spent at sea (hours)]"
-                      dataType="r8"
-                      name="Annual Total time spent at sea (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      dataType="r8"
-                      name="Annual average Fuel consumption per distance (kg / n mile)" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load Ship Dimension\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load Ship Dimension\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load Ship Dimension\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load Ship Dimension\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Load Ship Dimension\Ship Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -5220,21 +3807,6 @@ where [refTable].[Name] = ?</property>
               endId="Package\Load Ship Dimension\Ship Destination.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\Load Ship Dimension\Lookup MRV.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load Ship Dimension.Paths[Lookup Match Output1]"
-              endId="Package\Load Ship Dimension\Lookup MRV 1.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Ship Dimension\Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load Ship Dimension.Paths[Lookup Match Output2]"
-              endId="Package\Load Ship Dimension\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Ship Dimension\Lookup MRV 1.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load Ship Dimension.Paths[Lookup No Match Output]"
-              endId="Package\Load Ship Dimension\Lookup.Inputs[Lookup Input]"
-              name="Lookup No Match Output"
-              startId="Package\Load Ship Dimension\Lookup MRV.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load Ship Dimension.Paths[OLE DB Source Output]"
               endId="Package\Load Ship Dimension\Lookup MRV.Inputs[Lookup Input]"
@@ -5707,7 +4279,7 @@ where [refTable].[VV_VoyageId] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[TPS_Voyage_Port]) [refTable]
-where [refTable].[VV_VoyageId] = ?</property>
+where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [refTable].[Vp_PortIdNext] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -5743,7 +4315,7 @@ where [refTable].[VV_VoyageId] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Shipment Fact\222:invalid};</property>
+                  name="ParameterMap">#{Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[VoyageId]};#{Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdFrom]};#{Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdTo]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -5782,6 +4354,38 @@ where [refTable].[VV_VoyageId] = ?</property>
                           name="CopyFromReferenceColumn" />
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Lookup VoyagePort.Inputs[Lookup Input].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdFrom]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VP_PortIdCurrent</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Lookup VoyagePort.Inputs[Lookup Input].Columns[PortIdTo]"
+                      cachedDataType="i4"
+                      cachedName="PortIdTo"
+                      lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdTo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Vp_PortIdNext</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5795,34 +4399,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                   name="Lookup Match Output"
                   synchronousInputId="Package\Load Shipment Fact\Lookup VoyagePort.Inputs[Lookup Input]">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[VP_PortIdCurrent]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[VP_PortIdCurrent]"
-                      name="VP_PortIdCurrent"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">VP_PortIdCurrent</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_PortIdNext]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_PortIdNext]"
-                      name="Vp_PortIdNext"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Vp_PortIdNext</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_LegDateDepart]"
                       dataType="dbDate"
@@ -5878,6 +4454,34 @@ where [refTable].[VV_VoyageId] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
                           name="CopyFromReferenceColumn">Vp_PortOrder</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[VP_PortIdCurrent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[VP_PortIdCurrent]"
+                      name="VP_PortIdCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">VP_PortIdCurrent</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_PortIdNext]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_PortIdNext]"
+                      name="Vp_PortIdNext"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Vp_PortIdNext</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -5988,6 +4592,12 @@ where [refTable].[VV_VoyageId] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipmentId]"
+                      cachedDataType="i4"
+                      cachedName="ShipmentId"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
+                      lineageId="Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ShipmentId]" />
+                    <inputColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Item]"
                       cachedDataType="i4"
                       cachedName="Item"
@@ -5999,6 +4609,13 @@ where [refTable].[VV_VoyageId] = ?</property>
                       cachedName="ContainertypeId"
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainertypeId]"
                       lineageId="Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContainerCount]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ContainerCount"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
+                      lineageId="Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainerCount]" />
                     <inputColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ConsignorId]"
                       cachedDataType="i4"
@@ -6024,18 +4641,6 @@ where [refTable].[VV_VoyageId] = ?</property>
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_ShipId]"
                       lineageId="Package\Load Shipment Fact\Lookup Voyage.Outputs[Lookup Match Output].Columns[VS_ShipId]" />
                     <inputColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VP_PortIdCurrent]"
-                      cachedDataType="i4"
-                      cachedName="VP_PortIdCurrent"
-                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VP_PortIdCurrent]"
-                      lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[VP_PortIdCurrent]" />
-                    <inputColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Vp_PortIdNext]"
-                      cachedDataType="i4"
-                      cachedName="Vp_PortIdNext"
-                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_PortIdNext]"
-                      lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_PortIdNext]" />
-                    <inputColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Vp_LegDateDepart]"
                       cachedDataType="dbDate"
                       cachedName="Vp_LegDateDepart"
@@ -6054,12 +4659,17 @@ where [refTable].[VV_VoyageId] = ?</property>
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_Traject_Distance]"
                       lineageId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output].Columns[Vp_Traject_Distance]" />
                     <inputColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContainerCount]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="ContainerCount"
-                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
-                      lineageId="Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainerCount]" />
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VP_PortIdCurrent]"
+                      lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PortIdTo]"
+                      cachedDataType="i4"
+                      cachedName="PortIdTo"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_PortIdNext]"
+                      lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdTo]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7037,7 +5647,7 @@ where [refTable].[VV_VoyageId] = ?</property>
     design-time-name="Package\Load Ship Dimension">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\Load Ship Dimension\Ship Source"
@@ -7045,186 +5655,56 @@ where [refTable].[VV_VoyageId] = ?</property>
         <NodeLayout
           Size="138,42"
           Id="Package\Load Ship Dimension\Lookup MRV"
-          TopLeft="229,362" />
+          TopLeft="229,351" />
         <NodeLayout
           Size="155,42"
           Id="Package\Load Ship Dimension\Ship Destination"
-          TopLeft="210,552" />
+          TopLeft="220,524" />
         <EdgeLayout
           Id="Package\Load Ship Dimension.Paths[OLE DB Source Output]"
           TopLeft="296.25,239">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,123"
+              EndConnector="0,112"
               Start="0,0"
-              End="0,115.5">
+              End="0,104.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,115.5" />
+                    End="0,104.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Ship Dimension.Paths[Lookup Match Output]"
-          TopLeft="298,404">
+          TopLeft="297.75,393">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.5,148"
+              EndConnector="0,131"
               Start="0,0"
-              End="-10.5,140.5">
+              End="0,123.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,70"
-                    Point2="0,74"
-                    Point3="-4,74" />
-                  <mssgle:LineSegment
-                    End="-6.5,74" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6.5,74"
-                    Point2="-10.5,74"
-                    Point3="-10.5,78" />
-                  <mssgle:LineSegment
-                    End="-10.5,140.5" />
+                    End="0,123.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-53.44138671875,79,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Load Ship Dimension\Lookup"
-          TopLeft="489,354" />
-        <EdgeLayout
-          Id="Package\Load Ship Dimension.Paths[Lookup No Match Output]"
-          TopLeft="367,383">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="122,-8"
-              Start="0,0"
-              End="114.5,-8">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="57,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57,0"
-                    Point2="61,0"
-                    Point3="61,-4" />
-                  <mssgle:LineSegment
-                    End="61,-4" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61,-4"
-                    Point2="61,-8"
-                    Point3="65,-8" />
-                  <mssgle:LineSegment
-                    End="114.5,-8" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="5.19361328125,1,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Load Ship Dimension\OLE DB Destination"
-          TopLeft="481,618" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\Load Ship Dimension\Lookup MRV 1"
-          TopLeft="459,493" />
-        <EdgeLayout
-          Id="Package\Load Ship Dimension.Paths[Lookup Match Output1]"
-          TopLeft="545.5,396">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13,97"
-              Start="0,0"
-              End="-13,89.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.5"
-                    Point2="0,48.5"
-                    Point3="-4,48.5" />
-                  <mssgle:LineSegment
-                    End="-9,48.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9,48.5"
-                    Point2="-13,48.5"
-                    Point3="-13,52.5" />
-                  <mssgle:LineSegment
-                    End="-13,89.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-54.69138671875,53.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Ship Dimension.Paths[Lookup Match Output2]"
-          TopLeft="532.5,535">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="34,83"
-              Start="0,0"
-              End="34,75.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37.5"
-                    Point2="0,41.5"
-                    Point3="4,41.5" />
-                  <mssgle:LineSegment
-                    End="30,41.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30,41.5"
-                    Point2="34,41.5"
-                    Point3="34,45.5" />
-                  <mssgle:LineSegment
-                    End="34,75.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.19138671875,46.5,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,55.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7241,29 +5721,6 @@ where [refTable].[VV_VoyageId] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\Lookup MRV">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[RAW_MRV]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -7300,35 +5757,11 @@ where [refTable].[VV_VoyageId] = ?</property>
         <NodeLayout
           Size="171,42"
           Id="Package\Load Shipment Fact\OLE DB Destination"
-          TopLeft="339,567" />
+          TopLeft="341,566" />
         <NodeLayout
           Size="170,42"
           Id="Package\Load Shipment Fact\Lookup VoyagePort"
           TopLeft="340,456" />
-        <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-          TopLeft="424.75,498">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,69"
-              Start="0,0"
-              End="0,61.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,24.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
           TopLeft="434.5,395">
@@ -7423,34 +5856,35 @@ where [refTable].[VV_VoyageId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
+          TopLeft="425.75,498">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,24.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\Lookup VoyagePort">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[TPS_Voyage_Port]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\OLE DB Destination">
+    design-time-name="Package\Load Shipment Fact\Shipment detail Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7463,7 +5897,30 @@ where [refTable].[VV_VoyageId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\Shipment detail Source">
+    design-time-name="Package\Load Shipment Fact\Lookup VoyagePort">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[TPS_Voyage_Port]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Shipment Fact\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7518,65 +5975,6 @@ where [refTable].[VV_VoyageId] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[CommonMistakes]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship Dimension\Lookup MRV 1">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dbo].[RAW_MRV]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">true</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
