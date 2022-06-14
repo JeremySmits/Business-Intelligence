@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="RDBMSToPSA"
   DTS:PackageType="5"
-  DTS:VersionBuild="115"
-  DTS:VersionGUID="{371A97FB-AB36-4AA5-9D7A-F367013D1DFE}">
+  DTS:VersionBuild="131"
+  DTS:VersionGUID="{B6C300D3-91CF-4334-8EE2-631D6F0A3D04}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3831,6 +3831,166 @@ where [refTable].[Name] = ?</property>
           version="1">
           <components>
             <component
+              refId="Package\Load Shipment Fact\Lookup Container"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Container"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[RAW_CONTAINER]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[RAW_CONTAINER]) [refTable]
+where [refTable].[Id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Type" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RefrigerationFlag" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PowerFlag" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Length" dataType="DT_NUMERIC" length="0" precision="28" scale="2" codePage="0"/&gt;&lt;referenceColumn name="Cubes" dataType="DT_NUMERIC" length="0" precision="28" scale="2" codePage="0"/&gt;&lt;referenceColumn name="EuroPricePerKm" dataType="DT_NUMERIC" length="0" precision="28" scale="2" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Shipment Fact\Lookup Container.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KC36UDI.Kramse_RDBMS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KC36UDI.Kramse_RDBMS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Shipment Fact\Lookup Container.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Lookup Container.Inputs[Lookup Input].Columns[ContainertypeId]"
+                      cachedDataType="i4"
+                      cachedName="ContainertypeId"
+                      lineageId="Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load Shipment Fact\Lookup Container.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Match Output].Columns[Cubes]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Match Output].Columns[Cubes]"
+                      name="Cubes"
+                      precision="28"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Cubes</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load Shipment Fact\Lookup Container.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load Shipment Fact\Lookup Container.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Shipment Fact\Lookup Shipment"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -4115,7 +4275,7 @@ where [refTable].[VV_VoyageId] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Shipment Fact\222:invalid};</property>
+                  name="ParameterMap">#{Package\Load Shipment Fact\236:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4629,12 +4789,6 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[Distance]" />
                     <inputColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberContainers]"
-                      cachedDataType="i4"
-                      cachedName="NumberContainers"
-                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
-                      lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[NumberContainers]" />
-                    <inputColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VS_ShipId]"
                       cachedDataType="i4"
                       cachedName="VS_ShipId"
@@ -4670,6 +4824,20 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
                       cachedName="PortIdTo"
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Vp_PortIdNext]"
                       lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[PortIdTo]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TUE]"
+                      cachedDataType="numeric"
+                      cachedName="TUE"
+                      cachedPrecision="38"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TUE]"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Output].Columns[TUE]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberContainers]"
+                      cachedDataType="i4"
+                      cachedName="NumberContainers"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainersTotal]"
+                      lineageId="Package\Load Shipment Fact\Lookup Shipment.Outputs[Lookup Match Output].Columns[NumberContainers]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4685,10 +4853,6 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       dataType="i4"
                       name="Distance" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
-                      dataType="i4"
-                      name="NumberContainers" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item]"
                       dataType="i4"
@@ -4723,8 +4887,19 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
                       name="VS_ShipId" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
-                      dataType="i4"
-                      name="ContainerCount" />
+                      dataType="numeric"
+                      name="ContainerCount"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainersTotal]"
+                      dataType="numeric"
+                      name="NumberContainersTotal"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TUE]"
+                      dataType="numeric"
+                      name="TUE"
+                      precision="28" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4916,8 +5091,192 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load Shipment Fact\TUE_Per_Container"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="TUE_Per_Container"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Shipment Fact\TUE_Per_Container.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Container.Inputs[Derived Column Input].Columns[Cubes]"
+                      cachedDataType="numeric"
+                      cachedName="Cubes"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Match Output].Columns[Cubes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Shipment Fact\TUE_Per_Container.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Output].Columns[TUE_Per_Container]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Output].Columns[TUE_Per_Container]"
+                      name="TUE_Per_Container"
+                      precision="35"
+                      scale="7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Match Output].Columns[Cubes]} / 38.51</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Cubes / 38.51</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Shipment Fact\TUE_Per_Container.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Shipment Fact\TUE_Per_Shipment"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="TUE_Per_Shipment"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Shipment Fact\TUE_Per_Shipment.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Shipment.Inputs[Derived Column Input].Columns[ContainerCount]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ContainerCount"
+                      lineageId="Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainerCount]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Shipment.Inputs[Derived Column Input].Columns[TUE_Per_Container]"
+                      cachedDataType="numeric"
+                      cachedName="TUE_Per_Container"
+                      cachedPrecision="35"
+                      cachedScale="7"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Output].Columns[TUE_Per_Container]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Shipment Fact\TUE_Per_Shipment.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Output].Columns[TUE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Output].Columns[TUE]"
+                      name="TUE"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Output].Columns[TUE_Per_Container]} * (DT_DECIMAL,0)#{Package\Load Shipment Fact\Shipment detail Source.Outputs[OLE DB Source Output].Columns[ContainerCount]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TUE_Per_Container * (DT_DECIMAL,0)ContainerCount</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Shipment Fact\TUE_Per_Shipment.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
+            <path
+              refId="Package\Load Shipment Fact.Paths[Derived Column Output]"
+              endId="Package\Load Shipment Fact\TUE_Per_Shipment.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Load Shipment Fact\TUE_Per_Container.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Shipment Fact.Paths[Derived Column Output1]"
+              endId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load Shipment Fact\TUE_Per_Shipment.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load Shipment Fact.Paths[Lookup Match Output]"
               endId="Package\Load Shipment Fact\Lookup Voyage.Inputs[Lookup Input]"
@@ -4930,9 +5289,14 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
               startId="Package\Load Shipment Fact\Lookup Voyage.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-              endId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Load Shipment Fact\Lookup Container.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load Shipment Fact\Lookup VoyagePort.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Shipment Fact.Paths[Lookup Match Output3]"
+              endId="Package\Load Shipment Fact\TUE_Per_Container.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Shipment Fact\Lookup Container.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Shipment Fact.Paths[OLE DB Source Output]"
               endId="Package\Load Shipment Fact\Lookup Shipment.Inputs[Lookup Input]"
@@ -5743,6 +6107,10 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="171,42"
+          Id="Package\Load Shipment Fact\OLE DB Destination"
+          TopLeft="346,695" />
+        <NodeLayout
           Size="188,42"
           Id="Package\Load Shipment Fact\Shipment detail Source"
           TopLeft="325,150" />
@@ -5755,13 +6123,127 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
           Id="Package\Load Shipment Fact\Lookup Shipment"
           TopLeft="352,255" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\Load Shipment Fact\OLE DB Destination"
-          TopLeft="341,566" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Load Shipment Fact\Lookup VoyagePort"
           TopLeft="340,456" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Load Shipment Fact\TUE_Per_Shipment"
+          TopLeft="640,674" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Load Shipment Fact\Lookup Container"
+          TopLeft="357,542" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Load Shipment Fact\TUE_Per_Container"
+          TopLeft="629,571" />
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[OLE DB Source Output]"
+          TopLeft="419,192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,63"
+              Start="0,0"
+              End="13.5,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="9.5,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,31.5"
+                    Point2="13.5,31.5"
+                    Point3="13.5,35.5" />
+                  <mssgle:LineSegment
+                    End="13.5,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output3]"
+          TopLeft="519,563">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110,29"
+              Start="0,0"
+              End="102.5,29">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51,0"
+                    Point2="55,0"
+                    Point3="55,4" />
+                  <mssgle:LineSegment
+                    End="55,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55,25"
+                    Point2="55,29"
+                    Point3="59,29" />
+                  <mssgle:LineSegment
+                    End="102.5,29" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="6.80861328125,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
+          TopLeft="425,498">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,44"
+              Start="0,0"
+              End="13,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="9,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,22"
+                    Point2="13,22"
+                    Point3="13,26" />
+                  <mssgle:LineSegment
+                    End="13,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.69138671875,27,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
           TopLeft="434.5,395">
@@ -5823,31 +6305,31 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[OLE DB Source Output]"
-          TopLeft="419,192">
+          Id="Package\Load Shipment Fact.Paths[Derived Column Output1]"
+          TopLeft="640,695">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="13.5,63"
+              EndConnector="-123,21"
               Start="0,0"
-              End="13.5,55.5">
+              End="-115.5,21">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="-57.5,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="4,31.5" />
+                    Point1="-57.5,0"
+                    Point2="-61.5,0"
+                    Point3="-61.5,4" />
                   <mssgle:LineSegment
-                    End="9.5,31.5" />
+                    End="-61.5,17" />
                   <mssgle:CubicBezierSegment
-                    Point1="9.5,31.5"
-                    Point2="13.5,31.5"
-                    Point3="13.5,35.5" />
+                    Point1="-61.5,17"
+                    Point2="-61.5,21"
+                    Point3="-65.5,21" />
                   <mssgle:LineSegment
-                    End="13.5,55.5" />
+                    End="-115.5,21" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5857,34 +6339,44 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-          TopLeft="425.75,498">
+          Id="Package\Load Shipment Fact.Paths[Derived Column Output]"
+          TopLeft="714,613">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,68"
+              EndConnector="10.5,61"
               Start="0,0"
-              End="0,60.5">
+              End="10.5,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.5" />
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="6.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,30.5"
+                    Point2="10.5,30.5"
+                    Point3="10.5,34.5" />
+                  <mssgle:LineSegment
+                    End="10.5,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,24.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\Shipment detail Source">
+    design-time-name="Package\Load Shipment Fact\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5897,30 +6389,7 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\Lookup VoyagePort">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[TPS_Voyage_Port]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\OLE DB Destination">
+    design-time-name="Package\Load Shipment Fact\Shipment detail Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5967,6 +6436,52 @@ where [refTable].[VV_VoyageId] = ? and [refTable].[VP_PortIdCurrent] = ? and [re
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[TPS_Shipment]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Shipment Fact\Lookup VoyagePort">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[TPS_Voyage_Port]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Shipment Fact\Lookup Container">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[RAW_CONTAINER]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>

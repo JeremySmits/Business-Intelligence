@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="PSAToODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{D1D3146F-D9DD-4161-8511-7FFF0E3E5A86}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{587D3FE8-3FBB-4893-9465-C46BC374326F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5689,19 +5689,23 @@ AND [refTable].[EndDate] IS NULL;</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Shipment Fact\Lookup ContainerRowId.Inputs[Lookup Input].Columns[ContainertypeId]"
+                      refId="Package\Load Shipment Fact\Lookup ContainerRowId.Inputs[Lookup Input].Columns[ContainerRowId]"
                       cachedDataType="i4"
                       cachedName="ContainertypeId"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]">
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]"
+                      name="ContainerRowId"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Id</property>
                         <property
-                          dataType="System.Null"
+                          dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
+                          name="CopyFromReferenceColumn">ContainerRowId</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -5716,22 +5720,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Load Shipment Fact\Lookup ContainerRowId.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Shipment Fact\Lookup ContainerRowId.Outputs[Lookup Match Output].Columns[ContainerRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Shipment Fact\Lookup ContainerRowId.Outputs[Lookup Match Output].Columns[ContainerRowId]"
-                      name="ContainerRowId"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">ContainerRowId</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -5849,19 +5837,23 @@ AND [refTable].[EndDate] IS NULL;</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Shipment Fact\Lookup CosignorRowId.Inputs[Lookup Input].Columns[ConsignorId]"
+                      refId="Package\Load Shipment Fact\Lookup CosignorRowId.Inputs[Lookup Input].Columns[ConsignorRowId]"
                       cachedDataType="i4"
                       cachedName="ConsignorId"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ConsignorId]">
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ConsignorId]"
+                      name="ConsignorRowId"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Id</property>
                         <property
-                          dataType="System.Null"
+                          dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
+                          name="CopyFromReferenceColumn">ConsignorRowId</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -5876,22 +5868,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Load Shipment Fact\Lookup CosignorRowId.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Shipment Fact\Lookup CosignorRowId.Outputs[Lookup Match Output].Columns[ConsignorRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Shipment Fact\Lookup CosignorRowId.Outputs[Lookup Match Output].Columns[ConsignorRowId]"
-                      name="ConsignorRowId"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">ConsignorRowId</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -6009,19 +5985,23 @@ AND [refTable].[EndDate] IS NULL;</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Shipment Fact\Lookup ShipRowId.Inputs[Lookup Input].Columns[VS_ShipId]"
+                      refId="Package\Load Shipment Fact\Lookup ShipRowId.Inputs[Lookup Input].Columns[ShipRowId]"
                       cachedDataType="i4"
                       cachedName="VS_ShipId"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[VS_ShipId]">
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[VS_ShipId]"
+                      name="ShipRowId"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">VS_Shipid</property>
                         <property
-                          dataType="System.Null"
+                          dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
+                          name="CopyFromReferenceColumn">ShipRowId</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -6036,22 +6016,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Load Shipment Fact\Lookup ShipRowId.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Shipment Fact\Lookup ShipRowId.Outputs[Lookup Match Output].Columns[ShipRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Shipment Fact\Lookup ShipRowId.Outputs[Lookup Match Output].Columns[ShipRowId]"
-                      name="ShipRowId"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">ShipRowId</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -6177,12 +6141,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Distance]" />
                     <inputColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberContainers]"
-                      cachedDataType="i4"
-                      cachedName="NumberContainers"
-                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainers]" />
-                    <inputColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Item]"
                       cachedDataType="i4"
                       cachedName="Item"
@@ -6236,6 +6194,20 @@ AND [refTable].[EndDate] IS NULL;</property>
                       cachedName="ContainerCount"
                       externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainerCount]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TUE]"
+                      cachedDataType="numeric"
+                      cachedName="TUE"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TUE]"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[TUE]" />
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumberContainersTotal]"
+                      cachedDataType="numeric"
+                      cachedName="NumberContainersTotal"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainersTotal]"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainersTotal]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6251,10 +6223,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       dataType="i4"
                       name="Distance" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
-                      dataType="i4"
-                      name="NumberContainers" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Item]"
                       dataType="i4"
@@ -6291,6 +6259,15 @@ AND [refTable].[EndDate] IS NULL;</property>
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerCount]"
                       dataType="i4"
                       name="ContainerCount" />
+                    <externalMetadataColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainersTotal]"
+                      dataType="i4"
+                      name="NumberContainersTotal" />
+                    <externalMetadataColumn
+                      refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TUE]"
+                      dataType="numeric"
+                      name="TUE"
+                      precision="28" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6408,15 +6385,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                       name="Distance"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainers]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[NumberContainers]"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainers]"
-                      name="NumberContainers"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Item]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
@@ -6497,6 +6465,26 @@ AND [refTable].[EndDate] IS NULL;</property>
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainerCount]"
                       name="ContainerCount"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainersTotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[NumberContainersTotal]"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[NumberContainersTotal]"
+                      name="NumberContainersTotal"
+                      precision="28"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[TUE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[TUE]"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[TUE]"
+                      name="TUE"
+                      precision="28"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6512,10 +6500,6 @@ AND [refTable].[EndDate] IS NULL;</property>
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
                       dataType="i4"
                       name="Distance" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[NumberContainers]"
-                      dataType="i4"
-                      name="NumberContainers" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[Item]"
                       dataType="i4"
@@ -6550,8 +6534,19 @@ AND [refTable].[EndDate] IS NULL;</property>
                       name="VS_ShipId" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerCount]"
-                      dataType="i4"
-                      name="ContainerCount" />
+                      dataType="numeric"
+                      name="ContainerCount"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[NumberContainersTotal]"
+                      dataType="numeric"
+                      name="NumberContainersTotal"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].ExternalColumns[TUE]"
+                      dataType="numeric"
+                      name="TUE"
+                      precision="28" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6575,10 +6570,11 @@ AND [refTable].[EndDate] IS NULL;</property>
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[Distance]"
                       name="Distance" />
                     <outputColumn
-                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[NumberContainers]"
-                      dataType="i4"
-                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[NumberContainers]"
-                      name="NumberContainers" />
+                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[NumberContainersTotal]"
+                      dataType="numeric"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[NumberContainersTotal]"
+                      name="NumberContainersTotal"
+                      precision="28" />
                     <outputColumn
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[Item]"
                       dataType="i4"
@@ -6626,6 +6622,12 @@ AND [refTable].[EndDate] IS NULL;</property>
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
+                      refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[TUE]"
+                      dataType="numeric"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[TUE]"
+                      name="TUE"
+                      precision="28" />
+                    <outputColumn
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
@@ -6633,9 +6635,10 @@ AND [refTable].[EndDate] IS NULL;</property>
                       specialFlags="2" />
                     <outputColumn
                       refId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[ContainerCount]"
-                      dataType="i4"
+                      dataType="numeric"
                       lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Error Output].Columns[ContainerCount]"
-                      name="ContainerCount" />
+                      name="ContainerCount"
+                      precision="28" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -8339,53 +8342,21 @@ AND [refTable].[EndDate] IS NULL;</property>
           Id="Package\Load Shipment Fact\Lookup CosignorRowId"
           TopLeft="367,290" />
         <NodeLayout
-          Size="159,42"
-          Id="Package\Load Shipment Fact\Shipment Source"
-          TopLeft="367,147" />
+          Size="171,42"
+          Id="Package\Load Shipment Fact\OLE DB Destination"
+          TopLeft="712,503" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Load Shipment Fact\Lookup ShipRowId"
+          TopLeft="361,536" />
         <NodeLayout
           Size="192,42"
           Id="Package\Load Shipment Fact\Lookup ContainerRowId"
           TopLeft="366,412" />
         <NodeLayout
-          Size="167,42"
-          Id="Package\Load Shipment Fact\Lookup ShipRowId"
-          TopLeft="361,536" />
-        <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
-          TopLeft="462,454">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17.5,82"
-              Start="0,0"
-              End="-17.5,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37"
-                    Point2="0,41"
-                    Point3="-4,41" />
-                  <mssgle:LineSegment
-                    End="-13.5,41" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.5,41"
-                    Point2="-17.5,41"
-                    Point3="-17.5,45" />
-                  <mssgle:LineSegment
-                    End="-17.5,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-56.94138671875,46,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="159,42"
+          Id="Package\Load Shipment Fact\Shipment Source"
+          TopLeft="367,147" />
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output]"
           TopLeft="461.25,332">
@@ -8444,10 +8415,6 @@ AND [refTable].[EndDate] IS NULL;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Load Shipment Fact\OLE DB Destination"
-          TopLeft="712,503" />
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
           TopLeft="528,557">
@@ -8484,6 +8451,42 @@ AND [refTable].[EndDate] IS NULL;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
+          TopLeft="462,454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,82"
+              Start="0,0"
+              End="-17.5,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="-4,41" />
+                  <mssgle:LineSegment
+                    End="-13.5,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,41"
+                    Point2="-17.5,41"
+                    Point3="-17.5,45" />
+                  <mssgle:LineSegment
+                    End="-17.5,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-56.94138671875,46,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -8503,7 +8506,7 @@ AND [refTable].[EndDate] IS NULL;</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
