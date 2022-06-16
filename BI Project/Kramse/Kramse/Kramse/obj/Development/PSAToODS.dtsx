@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="PSAToODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{587D3FE8-3FBB-4893-9465-C46BC374326F}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{B3E0CA37-F1D1-46CB-9B18-6F180E779968}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5607,6 +5607,323 @@
           version="1">
           <components>
             <component
+              refId="Package\Load Shipment Fact\Existing records"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Existing records"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Fact_Shipment]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Fact_Shipment]) [refTable]
+where [refTable].[ShipmentId] = ? and [refTable].[ConsignorId] = ? and [refTable].[Distance] = ? and [refTable].[Item] = ? and [refTable].[ContainertypeId] = ? and [refTable].[VP_PortIdCurrent] = ? and [refTable].[Vp_PortIdNext] = ? and [refTable].[Vp_LegDateDepart] = ? and [refTable].[Vp_LegDateArrival] = ? and [refTable].[Vp_Traject_Distance] = ? and [refTable].[VS_ShipId] = ? and [refTable].[ContainerCount] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipmentId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ConsignorId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Distance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberContainersTotal" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Item" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainertypeId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VP_PortIdCurrent" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_PortIdNext" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_LegDateDepart" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_LegDateArrival" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vp_Traject_Distance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VS_ShipId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerCount" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TUE" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ShipmentId]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ConsignorId]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Distance]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Item]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[VP_PortIdCurrent]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_PortIdNext]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_LegDateDepart]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_LegDateArrival]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_Traject_Distance]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[VS_ShipId]};#{Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainerCount]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Shipment Fact\Existing records.Connections[OleDbConnection]"
+                  connectionManagerID="{5CCC3CA6-D547-479D-A26A-23919A820ADA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[ShipmentId]"
+                      cachedDataType="i4"
+                      cachedName="ShipmentId"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ShipmentId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ShipmentId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[ConsignorId]"
+                      cachedDataType="i4"
+                      cachedName="ConsignorId"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ConsignorId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ConsignorId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[Distance]"
+                      cachedDataType="i4"
+                      cachedName="Distance"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Distance]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Distance</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[Item]"
+                      cachedDataType="i4"
+                      cachedName="Item"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Item]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Item</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[ContainertypeId]"
+                      cachedDataType="i4"
+                      cachedName="ContainertypeId"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainertypeId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ContainertypeId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[VP_PortIdCurrent]"
+                      cachedDataType="i4"
+                      cachedName="VP_PortIdCurrent"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[VP_PortIdCurrent]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VP_PortIdCurrent</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[Vp_PortIdNext]"
+                      cachedDataType="i4"
+                      cachedName="Vp_PortIdNext"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_PortIdNext]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Vp_PortIdNext</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[Vp_LegDateDepart]"
+                      cachedDataType="dbDate"
+                      cachedName="Vp_LegDateDepart"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_LegDateDepart]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Vp_LegDateDepart</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[Vp_LegDateArrival]"
+                      cachedDataType="dbDate"
+                      cachedName="Vp_LegDateArrival"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_LegDateArrival]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Vp_LegDateArrival</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[Vp_Traject_Distance]"
+                      cachedDataType="i4"
+                      cachedName="Vp_Traject_Distance"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[Vp_Traject_Distance]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Vp_Traject_Distance</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[VS_ShipId]"
+                      cachedDataType="i4"
+                      cachedName="VS_ShipId"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[VS_ShipId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">VS_ShipId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input].Columns[ContainerCount]"
+                      cachedDataType="i4"
+                      cachedName="ContainerCount"
+                      lineageId="Package\Load Shipment Fact\Shipment Source.Outputs[OLE DB Source Output].Columns[ContainerCount]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ContainerCount</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Shipment Fact\Existing records.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Shipment Fact\Existing records.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Shipment Fact\Existing records.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\Existing records.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Shipment Fact\Existing records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Shipment Fact\Existing records.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Shipment Fact\Lookup ContainerRowId"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -6265,9 +6582,8 @@ AND [refTable].[EndDate] IS NULL;</property>
                       name="NumberContainersTotal" />
                     <externalMetadataColumn
                       refId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TUE]"
-                      dataType="numeric"
-                      name="TUE"
-                      precision="28" />
+                      dataType="i4"
+                      name="TUE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6658,9 +6974,14 @@ AND [refTable].[EndDate] IS NULL;</property>
               startId="Package\Load Shipment Fact\Lookup ContainerRowId.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-              endId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Load Shipment Fact\Existing records.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load Shipment Fact\Lookup ShipRowId.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Shipment Fact.Paths[Lookup No Match Output]"
+              endId="Package\Load Shipment Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load Shipment Fact\Existing records.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load Shipment Fact.Paths[OLE DB Source Output]"
               endId="Package\Load Shipment Fact\Lookup CosignorRowId.Inputs[Lookup Input]"
@@ -8338,75 +8659,87 @@ AND [refTable].[EndDate] IS NULL;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="187,42"
-          Id="Package\Load Shipment Fact\Lookup CosignorRowId"
-          TopLeft="367,290" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Load Shipment Fact\OLE DB Destination"
-          TopLeft="712,503" />
-        <NodeLayout
           Size="167,42"
           Id="Package\Load Shipment Fact\Lookup ShipRowId"
-          TopLeft="361,536" />
-        <NodeLayout
-          Size="192,42"
-          Id="Package\Load Shipment Fact\Lookup ContainerRowId"
-          TopLeft="366,412" />
+          TopLeft="360,388" />
         <NodeLayout
           Size="159,42"
           Id="Package\Load Shipment Fact\Shipment Source"
           TopLeft="367,147" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Load Shipment Fact\Lookup CosignorRowId"
+          TopLeft="355,224" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load Shipment Fact\OLE DB Destination"
+          TopLeft="359,640" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Load Shipment Fact\Lookup ContainerRowId"
+          TopLeft="352,316" />
         <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output]"
-          TopLeft="461.25,332">
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
+          TopLeft="445.75,358">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,80"
+              EndConnector="0,30"
               Start="0,0"
-              End="0,72.5">
+              End="0,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,72.5" />
+                    End="0,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,30.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,5.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Shipment Fact.Paths[Lookup Match Output]"
+          TopLeft="448.25,266">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[OLE DB Source Output]"
-          TopLeft="446.5,189">
+          TopLeft="447.5,189">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14,101"
+              EndConnector="0,35"
               Start="0,0"
-              End="14,93.5">
+              End="0,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.5"
-                    Point2="0,50.5"
-                    Point3="4,50.5" />
-                  <mssgle:LineSegment
-                    End="10,50.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10,50.5"
-                    Point2="14,50.5"
-                    Point3="14,54.5" />
-                  <mssgle:LineSegment
-                    End="14,93.5" />
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8415,104 +8748,85 @@ AND [refTable].[EndDate] IS NULL;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Load Shipment Fact\Existing records"
+          TopLeft="358,501" />
         <EdgeLayout
           Id="Package\Load Shipment Fact.Paths[Lookup Match Output2]"
-          TopLeft="528,557">
+          TopLeft="443.5,430">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="184,-33"
+              EndConnector="-9,71"
               Start="0,0"
-              End="176.5,-33">
+              End="-9,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="88,0" />
+                    End="0,31.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="88,0"
-                    Point2="92,0"
-                    Point3="92,-4" />
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="-4,35.5" />
                   <mssgle:LineSegment
-                    End="92,-29" />
+                    End="-5,35.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="92,-29"
-                    Point2="92,-33"
-                    Point3="96,-33" />
+                    Point1="-5,35.5"
+                    Point2="-9,35.5"
+                    Point3="-9,39.5" />
                   <mssgle:LineSegment
-                    End="176.5,-33" />
+                    End="-9,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="43.80861328125,1,96.3827734375,11.609375"
+              BoundingBox="-52.69138671875,40.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Shipment Fact.Paths[Lookup Match Output1]"
-          TopLeft="462,454">
+          Id="Package\Load Shipment Fact.Paths[Lookup No Match Output]"
+          TopLeft="434.5,543">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.5,82"
+              EndConnector="10,97"
               Start="0,0"
-              End="-17.5,74.5">
+              End="10,89.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37" />
+                    End="0,44.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37"
-                    Point2="0,41"
-                    Point3="-4,41" />
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="4,48.5" />
                   <mssgle:LineSegment
-                    End="-13.5,41" />
+                    End="6,48.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-13.5,41"
-                    Point2="-17.5,41"
-                    Point3="-17.5,45" />
+                    Point1="6,48.5"
+                    Point2="10,48.5"
+                    Point3="10,52.5" />
                   <mssgle:LineSegment
-                    End="-17.5,74.5" />
+                    End="10,89.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-56.94138671875,46,96.3827734375,11.609375"
+              BoundingBox="-50.80638671875,53.5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\Lookup CosignorRowId">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">true</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Consignor]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Shipment Fact\Lookup ShipRowId">
     <Properties>
@@ -8533,6 +8847,29 @@ AND [refTable].[EndDate] IS NULL;</property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
           type="q4:string">true</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Shipment Fact\Lookup CosignorRowId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">true</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Consignor]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8560,6 +8897,19 @@ AND [refTable].[EndDate] IS NULL;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Shipment Fact\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Shipment Fact\Shipment Source">
     <Properties>
       <Property>
@@ -8573,15 +8923,25 @@ AND [refTable].[EndDate] IS NULL;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment Fact\OLE DB Destination">
+    design-time-name="Package\Load Shipment Fact\Existing records">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Fact_Shipment]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

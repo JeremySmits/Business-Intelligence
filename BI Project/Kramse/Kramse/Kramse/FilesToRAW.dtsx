@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="FilesToRAW"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{FC1FE8E3-8798-4431-A640-B7D9EC23C81E}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{038914F0-0A7C-41B9-8EEF-71CD4690D06B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3088,6 +3088,81 @@
           version="1">
           <components>
             <component
+              refId="Package\Load TPS\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load TPS\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TPS\Derived Column.Inputs[Derived Column Input].Columns[Sh_Shipname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Shipname"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load TPS\Load ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER](#{Package\Load TPS\Load ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(Sh_Shipname)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TPS\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load TPS\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TPS\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load TPS\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TPS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TPS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TPS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TPS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load TPS\Item Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -5663,6 +5738,11 @@
           </components>
           <paths>
             <path
+              refId="Package\Load TPS.Paths[Derived Column Output]"
+              endId="Package\Load TPS\Ship Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load TPS\Derived Column.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Load TPS.Paths[OLE DB Source Output]"
               endId="Package\Load TPS\Item Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
@@ -5674,29 +5754,29 @@
               startId="Package\Load TPS\Load Port.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load TPS.Paths[OLE DB Source Output2]"
-              endId="Package\Load TPS\Ship Destination.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load TPS\Load ship.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load TPS.Paths[OLE DB Source Output3]"
               endId="Package\Load TPS\Shipment Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load TPS\Load Shipment.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load TPS.Paths[OLE DB Source Output4]"
+              refId="Package\Load TPS.Paths[OLE DB Source Output3]"
               endId="Package\Load TPS\Shipment detail Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load TPS\Load Shipment Detail.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load TPS.Paths[OLE DB Source Output5]"
+              refId="Package\Load TPS.Paths[OLE DB Source Output4]"
               endId="Package\Load TPS\Voyage Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load TPS\Load Voyage.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load TPS.Paths[OLE DB Source Output6]"
+              refId="Package\Load TPS.Paths[OLE DB Source Output5]"
               endId="Package\Load TPS\Voyage port Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load TPS\Load Voyage port.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load TPS.Paths[OLE DB Source Output6]"
+              endId="Package\Load TPS\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load TPS\Load ship.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6118,7 +6198,7 @@
     design-time-name="Package\Load TPS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="192,42"
           Id="Package\Load TPS\Voyage port Destination"
@@ -6176,7 +6256,7 @@
           Id="Package\Load TPS\Item Destination"
           TopLeft="124,360" />
         <EdgeLayout
-          Id="Package\Load TPS.Paths[OLE DB Source Output5]"
+          Id="Package\Load TPS.Paths[OLE DB Source Output4]"
           TopLeft="1204,253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6206,13 +6286,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load TPS.Paths[OLE DB Source Output4]"
+          Id="Package\Load TPS.Paths[OLE DB Source Output3]"
           TopLeft="1004.25,251">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6230,13 +6308,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load TPS.Paths[OLE DB Source Output3]"
+          Id="Package\Load TPS.Paths[OLE DB Source Output2]"
           TopLeft="812.5,253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6266,45 +6342,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load TPS.Paths[OLE DB Source Output2]"
-          TopLeft="628,251">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-21.5,103"
-              Start="0,0"
-              End="-21.5,95.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.5"
-                    Point2="0,51.5"
-                    Point3="-4,51.5" />
-                  <mssgle:LineSegment
-                    End="-17.5,51.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.5,51.5"
-                    Point2="-21.5,51.5"
-                    Point3="-21.5,55.5" />
-                  <mssgle:LineSegment
-                    End="-21.5,95.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6338,9 +6376,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6374,13 +6410,11 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load TPS.Paths[OLE DB Source Output6]"
+          Id="Package\Load TPS.Paths[OLE DB Source Output5]"
           TopLeft="1382,253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6410,9 +6444,67 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Load TPS\Derived Column"
+          TopLeft="553,275" />
+        <EdgeLayout
+          Id="Package\Load TPS.Paths[OLE DB Source Output6]"
+          TopLeft="629,251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TPS.Paths[Derived Column Output]"
+          TopLeft="630,317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5,37"
+              Start="0,0"
+              End="-23.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,18.5"
+                    Point2="-23.5,18.5"
+                    Point3="-23.5,22.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

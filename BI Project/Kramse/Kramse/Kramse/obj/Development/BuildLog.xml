@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Kramse</Name>
-    <LastWriteTime>2022-03-30T11:16:42.2726423Z</LastWriteTime>
+    <LastWriteTime>2022-06-16T10:45:59.9953234Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>FilesToRAW.dtsx</Name>
-      <LastWriteTime>2022-03-30T16:45:09.8293858Z</LastWriteTime>
+      <LastWriteTime>2022-06-16T10:28:27.2729104Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>RAWToRDBMS.dtsx</Name>
-      <LastWriteTime>2022-06-01T14:55:56.6307997Z</LastWriteTime>
+      <LastWriteTime>2022-06-16T10:29:05.1543135Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,7 +23,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>PSAToODS.dtsx</Name>
-      <LastWriteTime>2022-06-14T12:53:23.8475625Z</LastWriteTime>
+      <LastWriteTime>2022-06-16T10:41:04.5392866Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>_RunAllPackages.dtsx</Name>
+      <LastWriteTime>2022-06-16T10:45:59.9513532Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
